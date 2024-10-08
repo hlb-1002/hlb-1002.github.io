@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+
+  
+    <meta name="description" content="DragonBo的个人博客">
+  
+
+  
+
+  
+    <meta name="author" content="DragonBo">
+  
+
+  
+
+  
+
+  <title>HTTP | DragonBo</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/hlb3.ico">
+  
+
+  <!--mathjax latex数学公式显示支持-->
+  
+  
+
+  
+
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          DragonBo
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">HTTP</h1>
+          <h2 class="title-sub-wrap">
+            <strong>DragonBo</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2024-08-28T07:10:02.540Z" itemprop="datePublished">2024-08-28</time>
+          </h2>
+          
+            <h2 class="last-time">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2024-09-11T01:21:15.031Z" itemprop="dateUpdated">2024-09-11</time>
+            </h2>
+          
+          
+            <h2 id="/2024/08/28/HTTP/" class="title-sub-wrap leancloud_visitors" data-flag-title="HTTP">
+              <em>文章访问量</em>
+              <i class="leancloud-visitors-count"></i>
+            </h2>
+          
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">🏷️ 计算机网络</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h2 id="HTTP常见的面试题"><a href="#HTTP常见的面试题" class="headerlink" title="HTTP常见的面试题"></a>HTTP常见的面试题</h2><h3 id="HTTP基本概念"><a href="#HTTP基本概念" class="headerlink" title="HTTP基本概念"></a>HTTP基本概念</h3><h4 id="HTTP是什么"><a href="#HTTP是什么" class="headerlink" title="HTTP是什么"></a>HTTP是什么</h4><p>HTTP是超文本传输协议，即就是HyperText Transfer Protocol<br/><br>可以拆开解释：<br/></p>
+<ul>
+<li>协议:指两个或两个以上的对象达成一种行为的约定和规范</li>
+<li>传输：HTTP是双向协议且可以在在中间有中转或接力。</li>
+<li>超文本：图片，文字，视频等的混合体。</li>
+</ul>
+<p>一句话解释就是，HTTP是一个在计算机世界里专门在两点之间传输文字，图片，视频等的超文本信息的约定和规范。</p>
+<h4 id="HTTP常见的状态码"><a href="#HTTP常见的状态码" class="headerlink" title="HTTP常见的状态码"></a>HTTP常见的状态码</h4><p>五大类常见的状态码</p>
+<ul>
+<li>1XX ：提示信息</li>
+<li>2XX:成功</li>
+<li>3XX:重定向</li>
+<li>4xx: 客户端错误</li>
+<li>5XX:服务器错误</li>
+</ul>
+<p><img src="/../images/8_28/img.png" alt="img.png"></p>
+<h4 id="HTTP常见的字段"><a href="#HTTP常见的字段" class="headerlink" title="HTTP常见的字段"></a>HTTP常见的字段</h4><ul>
+<li>HOST字段：用于指定服务器的域名。</li>
+<li>Content- length 字段：服务器本次回应的数据长度。</li>
+<li>Connection字段：客户端要求服务器使用HTTP长连接机制。</li>
+<li>Content-Type 字段：用于服务器回应数据格式。</li>
+<li>Content-Encoding字段：用于服务器回应数据的压缩格式。</li>
+</ul>
+<h3 id="GET与-POST"><a href="#GET与-POST" class="headerlink" title="GET与 POST"></a>GET与 POST</h3><h4 id="GET与POST的区别"><a href="#GET与POST的区别" class="headerlink" title="GET与POST的区别"></a>GET与POST的区别</h4><ul>
+<li>GET:语义是从服务器获取指定的资源，请求的参数位置一般写在URL中。</li>
+<li>POST:语义是根据请求符合（报文body）对指定资源做处理，</li>
+</ul>
+<h4 id="这两种方法都是安全和幂等的吗"><a href="#这两种方法都是安全和幂等的吗" class="headerlink" title="这两种方法都是安全和幂等的吗"></a>这两种方法都是安全和幂等的吗</h4><ul>
+<li>安全：就是指方法不破坏服务器上的资源。</li>
+<li>幂等：就是多次执行相同的操作，结果相同。</li>
+</ul>
+<p>从RFC规范定义的语义分析来看：GET是安全且幂等的(只读），而POST是不安全且不幂等的（会修改和新增）。<br/><br>但实际应用中，GET去新增或删除数据就是不安全不幂等的，POST刚好也是相反。</p>
+<ul>
+<li>理论上，任何请求都能带BODY，但规范里不需要。</li>
+</ul>
+<h3 id="HTTP缓存技术"><a href="#HTTP缓存技术" class="headerlink" title="HTTP缓存技术"></a>HTTP缓存技术</h3><h4 id="缓存实现方式"><a href="#缓存实现方式" class="headerlink" title="缓存实现方式"></a>缓存实现方式</h4><p>缓存是将重复性的请求响应缓存在本地，实现方式有两种：强制缓存和协商缓存。</p>
+<ul>
+<li>强制缓存：决定是否使用缓存的主动性在浏览器这边，HTTP响应头部有两字段– Cache-Control（相对时间）和Expires（绝对时间）<br>，且Cache-Control优先级高于Expires,因此优先使用前者，具体实现是：第一次访问在response加上设置了时间的字段—再次访问时，计算时间是否<br>过期–服务器收到请求后更新字段。</li>
+<li>协商缓存：通过服务端来告知客户端是否可以使用缓存的方式就是协商缓存；具体实现是靠两种头部的字段实现，<br/><br>协商缓存这两个字段都需要配合Cache-Control字段来使用，且只有未命中强制缓存的时候，才能发起带有协商缓存字段的请求。</li>
+</ul>
+<p><img src="/../images/8_28/img_1.png" alt="img_1.png"></p>
+<h3 id="HTTP特性"><a href="#HTTP特性" class="headerlink" title="HTTP特性"></a>HTTP特性</h3><p>目前HTTP版本不少，有1.0，2.0，3.0，以1.0为例：</p>
+<h4 id="HTTP1-0的优点"><a href="#HTTP1-0的优点" class="headerlink" title="HTTP1.0的优点"></a>HTTP1.0的优点</h4><ul>
+<li>简单：文本形式简单。具体是：</li>
+<li>灵活和易于扩展：允许自定义和扩充，下层可随意变化</li>
+<li>应用广泛和跨平台</li>
+</ul>
+<h4 id="HTTP1-0缺点"><a href="#HTTP1-0缺点" class="headerlink" title="HTTP1.0缺点"></a>HTTP1.0缺点</h4><ul>
+<li>无状态双刃剑：服务器可以不记忆HTTP记忆状态，但完成有关联性操作时会非常麻烦。</li>
+<li>明文传输双刃剑：调试工作方便，但信息裸奔，容易被窃取。</li>
+<li>不安全：1.通信使用明文。2.不验证对方身份。3.无法证明报文完整性。</li>
+</ul>
+<h4 id="HTTP1-1性能如何"><a href="#HTTP1-1性能如何" class="headerlink" title="HTTP1.1性能如何"></a>HTTP1.1性能如何</h4><ul>
+<li>长连接：比起1.0的每次三次握手，1.1变成了长连接。</li>
+<li>管道网传输：同一个TCP连接里，多个请求，第一个请求发出后可不等返回，这样减少整体的响应时间。</li>
+<li>队头阻塞：1.1的管道解决了请求的队头阻塞，但没解决响应的队头阻塞。队头阻塞就是第一个请求阻塞会导致后面所有请求都阻塞。</li>
+</ul>
+<h3 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h3><h4 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h4><ul>
+<li>HTTPS解决了HTTP不安全的缺陷，再TCP和HTTP网络层中加入了SSL&#x2F;TLS安全协议。</li>
+<li>相较于HTTP，多了一部SSL&#x2F;TLS的握手过程。</li>
+<li>默认端口不同，HTTP默认为80，HTTPS默认为443。</li>
+<li>此外，HTTPS还需要向CA申请数字证书，来保证服务器身份可信。</li>
+</ul>
+<h4 id="HTTPS解决了哪些问题"><a href="#HTTPS解决了哪些问题" class="headerlink" title="HTTPS解决了哪些问题"></a>HTTPS解决了哪些问题</h4><ul>
+<li>窃听风险</li>
+<li>篡改风险</li>
+<li>冒充风险</li>
+</ul>
+<p>如何解决</p>
+<ul>
+<li>信息加密</li>
+<li>校验机制</li>
+<li>身份证书</li>
+</ul>
+<p>具体办法：</p>
+<ul>
+<li>混合加密 — 实现信息的机密性<br>  – 对称加密和非对称加密的混合，通信建立前非对称，通信过程对称，对称加密运算速度快，但无法安全进行密钥交换，非对称刚好相反。</li>
+<li>摘要算法 — 实现完整性，能够生成独一无二的“指纹”，用哈希函数计算内容的哈希值（指纹），通过哈希验证才能篡改，但<br>  不能保证哈希+内容一并被换，因为缺少客户端的消息是否来源于服务器证明。解决办法是用非对称加密算法，即使用公私密钥，<br>  公钥加密私钥开 – 保证了内容传输安全，内容只有私钥才能解开<br>  私钥加密公钥开 – 保证消息不被冒充，这就是非对称加密。</li>
+<li>将服务器公钥放入数字证书中。为了解决身份验证环节，即公钥是否是对应身份的。<br>  服务器将自己的公钥注册到CA中，CA用自己的私钥将服务器公钥数字签名并颁发证书，客户端会使用CA公钥确认服务器的数字证书真实性，然后获取公钥解密。</li>
+</ul>
+<h4 id="HTTPS如何建立连接"><a href="#HTTPS如何建立连接" class="headerlink" title="HTTPS如何建立连接"></a>HTTPS如何建立连接</h4><p>SSL&#x2F;TLS协议基本流程：</p>
+<ul>
+<li>客户端向服务器索要并验证服务器密钥</li>
+<li>双方协商生产会话密钥</li>
+<li>双方采取会话密钥进行加密通信</li>
+</ul>
+<p>客户端校验数字证书流程如何</p>
+<ul>
+<li>CA签发证书过程 ： CA将持有者的有效信息打包并hash计算 — CA使用自己的私钥加密即签名 — 最后将CA添加到文件证书上。</li>
+<li>客户端校验过程 ： 客户端用hash计算证书hash值 — 浏览器使用CA公钥解密证书内容即hash值 — 比较两hash值是否相等。</li>
+</ul>
+<p>除此之外，证书还存在证书信任链的问题，即我们向CA申请的证书不是根证书，而是中间证书签发。<br>这样在校验时会根据中间证书签发者向上寻求根证书。这样设置是为了保证根证书的绝对安全性。<br/><br><img src="/../images/8_28/img_2.png" alt="img_2.png"></p>
+<h4 id="HTTPS的应用数据如何保证完整性"><a href="#HTTPS的应用数据如何保证完整性" class="headerlink" title="HTTPS的应用数据如何保证完整性"></a>HTTPS的应用数据如何保证完整性</h4><p>TLS上主要实现握手协议和记录协议：</p>
+<ul>
+<li>握手协议主要实现 协商加密算法和生成对称密钥</li>
+<li>记录协议负责验证并保证数据的完整性和来源。</li>
+</ul>
+<p>具体实现：</p>
+<ul>
+<li>消息分段并压缩 — 加入消息认证码 — 通过对称密码加密 — 加入数据类型等报头组成最终的报文数据。</li>
+</ul>
+<h4 id="HTTPS一定可靠吗"><a href="#HTTPS一定可靠吗" class="headerlink" title="HTTPS一定可靠吗"></a>HTTPS一定可靠吗</h4><p>场景题：客户端与服务端之间多了中间人服务器，这样还能说明HTTPS安全可靠吗</p>
+<ul>
+<li>实际上中间人返回给客户端的证书是伪造的，浏览器可以识别并报警，如果用户点击信任此中间人，就会建立往下的连接。</li>
+<li>或者电脑中病毒，中间人的证书被根植在电脑里</li>
+</ul>
+<p>所以：HTTPS协议本身没有任何漏洞，即使成功进行了中间人攻击，本质也是利用客户端的漏洞，并非HTTPS不安全。</p>
+<ul>
+<li>为什么抓包工具能截取HTTPS数据呢？</li>
+<li>与中间人原理一致：中间人既需要与真实服务器连接不被发现，又需要与客户端连接不被怀疑，与服务器之间不存在问题，服务器不校验客户端身份<br> 但客户端会校验，因此需要对应域名的私钥。</li>
+<li>如何获取私钥？ </li>
+<li>去网站服务端拿 2. 去CA认证处拿域名签发私钥 3. 自己签发证书，且要被浏览器信任。</li>
+<li>当然只能通过第三种实现，也就是自己创建了CA。</li>
+<li>如何避免被抓取数据？</li>
+<li>建立HTTPS双向认证，即服务端也会验证客户端身份。</li>
+</ul>
+<h3 id="HTTP的演进"><a href="#HTTP的演进" class="headerlink" title="HTTP的演进"></a>HTTP的演进</h3><ul>
+<li>HTTP&#x2F;1.0 — HTTP&#x2F;1.1 ： 1. 使用长连接 2. 支持管道网络传输</li>
+<li>HTTP&#x2F;1.1 — HTTP&#x2F;2   ： 1. 头部压缩 （HPACK)将字段存入两端共同维护的表格，然后只发送索引号。2. 二进制格式，头信息和数据体统称为桢。3.<br>并发传输，解决队头阻塞，引入stream 概念，不同HTTP请求有独有的streamid来区分，可以乱序发送。4.服务器推送，两端都可以建立stream。</li>
+<li>HTTP&#x2F;2 — HTTP&#x2F;3     :  1.解决2.0遗漏的阻塞问题，将tcp改为udp，使用QUIC协议—好处：i.无队头阻塞，某个流丢失时，只会阻塞该流。ii. 更快的连接建立，iii.连接迁移。</li>
+</ul>
+<h2 id="HTTP-1-1-如何优化"><a href="#HTTP-1-1-如何优化" class="headerlink" title="HTTP&#x2F;1.1 如何优化"></a>HTTP&#x2F;1.1 如何优化</h2><p>有三种优化思路：1.尽量避免发送请求 2.在需要发送请求时，考虑减少请求次数。3.减少服务器的HTTP响应数据大小。</p>
+<h3 id="尽量避免发送请求"><a href="#尽量避免发送请求" class="headerlink" title="尽量避免发送请求"></a>尽量避免发送请求</h3><p>意思是，对于重复性的请求缓存在本地，用到缓存技术，如何做到：</p>
+<ul>
+<li>客户端第一次的请求以及响应数据保存在本地，并设置过期时间，当再次访问同样的请求时，可以直接从本地获取，当然如果过了时间，就会将此资源的摘要带在请求头部中<br>，服务端会与自身进行对比，相同则可以用，仅仅返回一个不含包体得到响应304。</li>
+</ul>
+<h3 id="如何减少HTTP请求"><a href="#如何减少HTTP请求" class="headerlink" title="如何减少HTTP请求"></a>如何减少HTTP请求</h3><p>有三个方面：1.减少重定向请求次数 2.合并请求 3. 延迟发送请求</p>
+<h4 id="减少重定向请求次数"><a href="#减少重定向请求次数" class="headerlink" title="减少重定向请求次数"></a>减少重定向请求次数</h4><p>重定向是指服务器的资源从url1 迁移到url2，但客户端不知情。</p>
+<ul>
+<li>解决办法：重定向工作1交由代理服务器完成。返回302重定向响应码（临时重定向）301（永久）308（类似永久）。</li>
+</ul>
+<h4 id="合并请求"><a href="#合并请求" class="headerlink" title="合并请求"></a>合并请求</h4><p>为了防止阻塞，会发送多个请求，将多个小请求合并成大请求，例如小资源合并为大资源一起请求回来，<br/><br>但是缺陷是一旦资源丢失，就要重新下载。</p>
+<h4 id="延迟请求"><a href="#延迟请求" class="headerlink" title="延迟请求"></a>延迟请求</h4><p>— 按需获取</p>
+<h3 id="如何减少HTTP响应的数据大小"><a href="#如何减少HTTP响应的数据大小" class="headerlink" title="如何减少HTTP响应的数据大小"></a>如何减少HTTP响应的数据大小</h3><p>最常用的方式是压缩，压缩又分为有损压缩和无损压缩：</p>
+<ul>
+<li>无损压缩：GZIP最常见的无损压缩</li>
+<li>有损压缩：请求头中会有质量因子，告诉服务器期望资源质量。</li>
+</ul>
+<h2 id="HTTPS-RSA-握手解析"><a href="#HTTPS-RSA-握手解析" class="headerlink" title="HTTPS RSA 握手解析"></a>HTTPS RSA 握手解析</h2><p>不同的密钥交换算法，TLS握手就不同，以RSA为例：</p>
+<h3 id="第一次握手"><a href="#第一次握手" class="headerlink" title="第一次握手"></a>第一次握手</h3><p>客户端首先发送Client hello 消息，里面包含客户端的TLS版本号，支持的密码套件列表，以及随机数。</p>
+<h3 id="第二次握手"><a href="#第二次握手" class="headerlink" title="第二次握手"></a>第二次握手</h3><p>服务端收到消息后，返回 Server hello 消息，里面包含服务端TLS版本号，随机数，以及合适的密码套件（基本形式：<br>密钥交换算法 + 签名算法 + 通信使用的对称加密算法 + 摘要算法），然后发送Server Certificate 包含数字证书，最后发送Server Hello Done 结束本次招呼</p>
+<h3 id="第三次握手"><a href="#第三次握手" class="headerlink" title="第三次握手"></a>第三次握手</h3><p>客户端验证完证书后，生成新的随机数并用服务器RSA公钥加密，发送 Client key Exchange 给服务端，至此两端都共享了三个随机数，然后生成<br><strong>会话密钥</strong>，发送Change cipher Spec ,然后再发送 Encrypted Handshake Message (Finished) ,把之前发送数据做个摘要并用会话密钥加密</p>
+<h3 id="第四次握手"><a href="#第四次握手" class="headerlink" title="第四次握手"></a>第四次握手</h3><p>服务端也是同样的操作，双方加密解密没问题的话，握手正式完成。</p>
+<h3 id="RSA算法最大的缺陷"><a href="#RSA算法最大的缺陷" class="headerlink" title="RSA算法最大的缺陷"></a>RSA算法最大的缺陷</h3><p>使用RSA密钥协商算法最大问题是不支持前向保密。服务端私钥泄露就会造成密文被破解。</p>
+<h2 id="HTTPS-ECDHE握手分析"><a href="#HTTPS-ECDHE握手分析" class="headerlink" title="HTTPS ECDHE握手分析"></a>HTTPS ECDHE握手分析</h2><p>基于离散对数设计的，知道对数求真数好求，知道真数求对数几乎不可能实现。<br><img src="/../images/8_28/img_3.png" alt="img_3.png"><br>基于此设计了DH算法，其有两种实现，静态DH算法和DHE算法，DHE算法计算性能不佳，要做大量乘法，改进为ECDHE 算法</p>
+<h3 id="ECDHE算法"><a href="#ECDHE算法" class="headerlink" title="ECDHE算法"></a>ECDHE算法</h3><p>基本流程 - 双方确定椭圆曲线和曲线基点，各自准备随机数做私钥并与几点相乘得到公钥，交换公钥后根据椭圆曲线可以计算出会话密钥。</p>
+<h3 id="握手过程"><a href="#握手过程" class="headerlink" title="握手过程"></a>握手过程</h3><h4 id="第一次握手-1"><a href="#第一次握手-1" class="headerlink" title="第一次握手"></a>第一次握手</h4><p>客户端<strong>发送请求信息</strong>，包含TLS版本号，支持的密码套件列表，以及随机数。</p>
+<h4 id="第二次握手-1"><a href="#第二次握手-1" class="headerlink" title="第二次握手"></a>第二次握手</h4><p>服务端收到消息，<strong>返回确认信息</strong>，包含版本号，随机数，以及密码套件（密钥协商算法 + 签名算法 + 通信使用的对称加密算法 + 摘要算法）；<br>然后<strong>发送验证信息</strong>，包含证书；随后与RAS算法有区别，<strong>发送Server Key Exchange消息</strong>。最后<strong>发送消息提供完毕通知</strong>。</p>
+<p>这一整个过程干的三件事有：</p>
+<ul>
+<li>服务端选择了椭圆曲线，同时曲线基点也就已知了</li>
+<li>生成了随机数</li>
+<li>根据基点和私钥计算服务端的公钥</li>
+</ul>
+<h4 id="第三次握手-1"><a href="#第三次握手-1" class="headerlink" title="第三次握手"></a>第三次握手</h4><p>客户端验证证书合法后，会生成随机数用作客户端的私钥，然后根据发送过来的信息<strong>计算公钥并发送给服务端</strong>，至此，双方都可以计算出ECDHE算法算出的共享密钥<br>，然后双方都有了会话密钥（客户端随机数 + 服务端随机数 + 共享密钥），然后客户端<strong>发送更改算法请求</strong>，接着<strong>发送之前数据的摘要并用对称密钥加密</strong>，<br>让服务端验证对称密钥是否可用。</p>
+<h4 id="第四次握手-1"><a href="#第四次握手-1" class="headerlink" title="第四次握手"></a>第四次握手</h4><p>服务端同样的操作。</p>
+<h2 id="HTTPS如何优化"><a href="#HTTPS如何优化" class="headerlink" title="HTTPS如何优化"></a>HTTPS如何优化</h2><p>产生损耗的环节在：</p>
+<ul>
+<li>TLS握手过程</li>
+<li>握手后的对称加密报文传输</li>
+</ul>
+<h3 id="硬件优化"><a href="#硬件优化" class="headerlink" title="硬件优化"></a>硬件优化</h3><p>因为HTTPS协议是计算密集型，所以可以提升cpu，另外可以选择支持AES-NI特性的CPU，这样可以加速数据的加解密传输过程。</p>
+<h3 id="软件优化"><a href="#软件优化" class="headerlink" title="软件优化"></a>软件优化</h3><p>分两种：软件升级 和 协议优化</p>
+<h4 id="软件升级"><a href="#软件升级" class="headerlink" title="软件升级"></a>软件升级</h4><p>软件升级成本过高，可能影响项目上线等。</p>
+<h4 id="协议优化"><a href="#协议优化" class="headerlink" title="协议优化"></a>协议优化</h4><p>就是对密钥交换过程进行优化。</p>
+<h5 id="密钥交换算法优化"><a href="#密钥交换算法优化" class="headerlink" title="密钥交换算法优化"></a>密钥交换算法优化</h5><p>RSA交换算法花费2RTT且不具备安全性，所以尽量选择ECDHE交换算法，花费1RTT且安全性也高。</p>
+<p>对称加密算法方面，可以选用AES_128_GCM，能比256快一些。</p>
+<h5 id="TLS升级"><a href="#TLS升级" class="headerlink" title="TLS升级"></a>TLS升级</h5><p>可以直接把TLS1.2升级到TLS1.3，这样完成TLS握手只需要1RTT,且安全性也提高了。</p>
+<p>之所以减少到了一次，是因为1.3把hello和公钥交换合并在一起了，于是就减少到只需要1RTT就能握手。<br>除此之外对于密钥交换算法，废除了不支持前向安全性的RSA和DH算法，只支持ECDHE算法。</p>
+<h3 id="证书优化"><a href="#证书优化" class="headerlink" title="证书优化"></a>证书优化</h3><p>两个方向：</p>
+<ul>
+<li>证书传输</li>
+<li>证书验证</li>
+</ul>
+<h4 id="证书传输优化"><a href="#证书传输优化" class="headerlink" title="证书传输优化"></a>证书传输优化</h4><p>优先选择 椭圆曲线（ECDSA)证书，因为相同安全强度下，ECC密钥长度比RSA短很多。</p>
+<h4 id="证书验证优化"><a href="#证书验证优化" class="headerlink" title="证书验证优化"></a>证书验证优化</h4><p>验证的方法：</p>
+<ul>
+<li>CRL ： 证书吊销列表，客户端下载证书吊销列表并遍历查找。带来的问题就是1.证书刚被吊销后，客户端更新CRL之前仍信任，实时性较差，2.证书越多，下载越慢，拖慢连接。</li>
+<li>OCSP : 在线证书状态协议，工作方式是客户端向CA发送查询请求，让CA返回证书有效状态。但还有问题就是：查询时会有网络开销。</li>
+<li>OCSP Stapling:<br>为了解决这一网络开销，出现了OCSP Stapling 原理是服务器定期查询，获得带有时间戳和签名的响应并缓存，然后建立连接时发送给客户端，这样客户端就不需要查询了。<br><img src="/../images/8_28/img_11.png" alt="img_11.png"></li>
+</ul>
+<h3 id="会话复用"><a href="#会话复用" class="headerlink" title="会话复用"></a>会话复用</h3><p>目的是缓存加密密钥，然后下次连接时直接复用，这样就减少了性能损耗。<br>分为两种：</p>
+<ul>
+<li>Session ID</li>
+<li>Session Ticket</li>
+</ul>
+<h4 id="Session-ID"><a href="#Session-ID" class="headerlink" title="Session ID"></a>Session ID</h4><p>两端口首次连接后，双方都会缓存会话密钥，并用唯一Session ID标识。</p>
+<p>但存在两个缺点：</p>
+<ul>
+<li>客户端增多，服务器内存压力增大。</li>
+<li>服务器负载均衡，客户端再次连接不一定命中上次访问过的服务器。</li>
+</ul>
+<h4 id="Session-Ticket"><a href="#Session-Ticket" class="headerlink" title="Session Ticket"></a>Session Ticket</h4><p>服务器不存了，将缓存工作交给客户端，下次连接时客户端将缓存发送给服务端解密。对于集群服务器，确保每台服务器密钥一致。</p>
+<p>而这两种都不具备前向安全性，应对重放攻击很难。重放攻击是指第三者窃听了对话并保留了密码，这样就可以冒充并删改数据了。</p>
+<p>避免重放攻击的方式是对会话密钥设计一个合理的过期时间。</p>
+<h4 id="Pre-shared-Key"><a href="#Pre-shared-Key" class="headerlink" title="Pre-shared Key"></a>Pre-shared Key</h4><p>在TLS1.3中，客户端会把Ticket一同发送给服务端。同样也有重放攻击的危险，处理方式也是设定合理过期时间。</p>
+<h2 id="HTTP-2"><a href="#HTTP-2" class="headerlink" title="HTTP&#x2F;2"></a>HTTP&#x2F;2</h2><p>HTTP1.1因为传输资源变大变多变杂了，实时性要求也高了，所以带来了最大的问题是：高延迟。</p>
+<p>高延迟的主要原因是：1.延迟已达下限，难以下降。2.并发连接有限。3. 队头阻塞问题。4.HTTP头部巨大且重复。5.不支持服务器推送消息。</p>
+<p>针对HTTP1.1的优化已经讲过，但一些关键地方无法优化，比如请求响应模型。头部巨大重复，并发连接耗时等等。</p>
+<h3 id="兼容HTTP1-1"><a href="#兼容HTTP1-1" class="headerlink" title="兼容HTTP1.1"></a>兼容HTTP1.1</h3><p>HTTP2兼容1.1，主要是其只在语法层面做了改造，语义层面没做改动，也就是说改了格式但意思没变。</p>
+<h3 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a>头部压缩</h3><p>头部含有固定的字段且大量请求和响应报文内的字段重复，因此有必要进行压缩，但2.0不采用gzip压缩，而是HPACK算法，<br>HPACK算法包含三个部分：</p>
+<ul>
+<li>静态字典</li>
+<li>动态字典</li>
+<li>HUFFMAN编码</li>
+</ul>
+<h4 id="静态字典"><a href="#静态字典" class="headerlink" title="静态字典"></a>静态字典</h4><p>是为高频出现的头部字符串和字段建立一张静态表，其中的header Value 值是使用Huffman编码了，这样可以将压缩率达到47%。</p>
+<h4 id="动态编码表"><a href="#动态编码表" class="headerlink" title="动态编码表"></a>动态编码表</h4><p>第一次发送后。双方更新自己的动态表，但动态表生效的前提是 必须在同一连接上，重复传输完全相同的HTTP头部。</p>
+<h4 id="二进制桢"><a href="#二进制桢" class="headerlink" title="二进制桢"></a>二进制桢</h4><p>2将响应报文划分为两类桢：HEADERS(首部) 和 DATA(消息负载)</p>
+<p>桢头结构内首先是一个帧长度，然后后面跟着桢类型（数据帧和控制桢），桢类型后面是一个标志位（用于携带简单的控制信息），<br>桢头后四位是流标识符，用于标识Frame是哪个Stream 的。</p>
+<p>最后是帧数据，存放通过HPACK算法压缩过的HTTP头部和包体。</p>
+<h3 id="并发传输"><a href="#并发传输" class="headerlink" title="并发传输"></a>并发传输</h3><p>多个Stream 跑在同一条TCP连接中，同一个HTTP请求与响应跑在同一个Stream中，HTTP消息可以由很多个Frame构成，一个Frame可以由多个TCP报文构成。<br>且双方都可以建立Stream，同时可以在帧头标志位设置优先级。</p>
+<h3 id="服务器主动推送资源"><a href="#服务器主动推送资源" class="headerlink" title="服务器主动推送资源"></a>服务器主动推送资源</h3><p>客户端发送的请求必须使用奇数号Stream,而服务器主动的推送使用的是偶数号。这样的区分是一种协议约定，用于帮助维护流之间的清晰组织和管理。</p>
+<h2 id="HTTP-3"><a href="#HTTP-3" class="headerlink" title="HTTP&#x2F;3"></a>HTTP&#x2F;3</h2><h3 id="HTTP-2的不足"><a href="#HTTP-2的不足" class="headerlink" title="HTTP&#x2F;2的不足"></a>HTTP&#x2F;2的不足</h3><ul>
+<li>队头阻塞：因为多个请求是在一个TCP连接中的，所以当TCP丢包时，整个TCP都要等待重传，从而阻塞所有请求。</li>
+<li>TCP与TLS的握手延迟：一是建立连接总共需要3RTT,二是刚建立连接的TCP会有慢启动的过程。</li>
+<li>网络迁移需要重新连接：TCP连接由四元组（源IP地址，源端口，目标IP地址，目标端口）确定的。因此一旦切换场景就需要重新握手。<br>解决办法是：将传输层协议替换成UDP</li>
+</ul>
+<h3 id="QUIC协议特点"><a href="#QUIC协议特点" class="headerlink" title="QUIC协议特点"></a>QUIC协议特点</h3><p>UDP包之间无序且无依赖关系，UDP不需要连接，自然比TCP快。</p>
+<p>HTTP&#x2F;3 不仅仅简单的将传输协议替换成UDP，还基于UDP协议在应用层实现QUIC协议，具备类似TCP的连接管理，拥塞窗口，流量控制的网络特性。</p>
+<p>QUIC的优点：</p>
+<ul>
+<li>无队头阻塞：也有类似strem与多路复用的概念，但因为无序，所以数据包丢失UDP不关心。但为了保证数据包的可靠性，每条流的每个数据包都由唯一标识序号，有包丢了，数据也无法被<br>获取，直到重传丢失报文，其他流是不受影响，这是与HTTP2不同的地方。</li>
+<li>更快的连接建立：QUIC内部包含TLS，自己的桢会携带TLS里的记录，再者，QUIC使用的是TLS1.3，因此仅需1RTT，甚至第二次连接时，数据包可和握手信息一并发送，达到0-RTT</li>
+<li>连接迁移：QUIC协议通过连接ID标记通信两端，即便ip地址发生变化，只要仍保有上下文信息，就可以。</li>
+</ul>
+<h3 id="HTTP-3协议"><a href="#HTTP-3协议" class="headerlink" title="HTTP&#x2F;3协议"></a>HTTP&#x2F;3协议</h3><p>同2一样，采用二进制桢结构，但是3的桢结构很简单，只有两个字段：类型和长度。桢类型大体分为数据帧和控制桢。</p>
+<p>3在头部压缩算法这方面也做了升级，升级成为QPACK,同样采用静态表，动态表和Huffman 编码。但有所改变：</p>
+<ul>
+<li>静态表：由原来的61项扩展到91项。</li>
+<li>动态表编解码方式不同：动态表具有时许性，当首次出现的请求发生丢包时，后续收到的请求，对方无法解码出HPACK头部，因为对方没建立好动态表，这样后续的请求就阻塞到首次请求中丢失的数据包重传。</li>
+</ul>
+<p>3中如何解决这一问题：QUIC会有两个特殊的单向流：</p>
+<ul>
+<li>一个是QPACK Encoder Stream,用于将一个字典传给对方，当面对不属于静态表时会发送。</li>
+<li>一个是 QPACK Decoder Stream ,用于响应对方，告诉对方自己刚发的字典已经更新到自己本地的动态表了。</li>
+</ul>
+<p>这两个流时用来同步双方的动态表的，当收到更新确认通知后才使用动态表编码HTTP头部。</p>
+<h2 id="RPC协议存在的必要性"><a href="#RPC协议存在的必要性" class="headerlink" title="RPC协议存在的必要性"></a>RPC协议存在的必要性</h2><p>TCP有三个特点，面向连接，可靠和基于字节流。如果使用纯裸的TCP，就会造成数据没有边界，及就是粘包问题。所以<br>要在此基础上，加入一些自定义的规则，于是就衍生出了像  HTTP  和  RPC等众多协议。</p>
+<h3 id="HTTP-和-RPC"><a href="#HTTP-和-RPC" class="headerlink" title="HTTP 和  RPC"></a>HTTP 和  RPC</h3><p>RPC是远程过程调用，本身不是一个具体的协议，而是调用方式，其底层可以使用TCP，也可以使用UDP或者HTTP：<br><img src="/../images/8_28/img_9.png" alt="img_9.png"></p>
+<h3 id="RPC-和-HTTP-的选择"><a href="#RPC-和-HTTP-的选择" class="headerlink" title="RPC 和 HTTP 的选择"></a>RPC 和 HTTP 的选择</h3><p>HTTP是 Browser &#x2F; Server 的协议 ，是需要一套标准的。</p>
+<p>RPC是 Client &#x2F; Server 的协议，所以只管连到自家公司就ok。</p>
+<p>两者的区别：</p>
+<ul>
+<li>服务发现： HTTP是通过DNS服务解析的，而RPC是有专门的中间服务去保存服务名和IP地址。两者差别不大</li>
+<li>底层连接形式：都是建立TCP长连接进行数据交互，但是RPC不同的是：它会再建立一个连接池，发送数据时从池里取出连接，用完后放回，下次复用。</li>
+<li>传输内容: 两者都是将二进制数据进行序列化，只是方案不同，比如HTTP是JSON，RPC是Protobuf。相比之下，Protobuf的体积更小，定制化成度更高。<br>因此公司内部更倾向于选择RPC。</li>
+</ul>
+<p>HTTP2.0 是2015年出现的，这时候很多公司内部已经使用RPC很多年了，所以没必要更换。</p>
+<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><p>如何做到用户在不做任何操作的情况下，网页收到消息并发生变更：</p>
+<ul>
+<li>使用HTTP不断轮询： 前端代码不断轮询，常见的是微信扫码，轮询间隔一般为1-2秒，最坏的结果是用户等待1-2秒，会有明显的卡顿。</li>
+<li>长轮询： 将超时设置为30秒，超时了就立马发起下一次请求。</li>
+</ul>
+<h3 id="websocket介绍"><a href="#websocket介绍" class="headerlink" title="websocket介绍"></a>websocket介绍</h3><p>TCP连接的两端可以是全双工，但是HTTP1.1协议里，变成了半双工。</p>
+<p>为了支持客户端和服务器端之间互相发送大量数据的场景，WebSocket协议被设计出来了。</p>
+<h3 id="如何建立WebSocket连接"><a href="#如何建立WebSocket连接" class="headerlink" title="如何建立WebSocket连接"></a>如何建立WebSocket连接</h3><p>先统一使用HTTP协议进行一次通信，普通HTTP请求则继续使用，如果想建立WebSocket连接，则在请求头上带些特殊的头，<br>这些头意思是想升级协议，并携带随机生成的base64码，浏览器验证base64码后验证通过。</p>
+<p>所以websocket协议只是借助http完成升级，并不是以http为基础。</p>
+<h3 id="Websocket消息格式"><a href="#Websocket消息格式" class="headerlink" title="Websocket消息格式"></a>Websocket消息格式</h3><p><img src="/../images/8_28/img_10.png" alt="img_10.png"></p>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/09/02/%E7%AE%97%E6%B3%95_%E9%93%BE%E8%A1%A8/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">链表</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/08/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%AF%87/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">计算机网络基础篇</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+    <div class="valine-container comments-container content-padding--primary soft-size--large soft-style--box">
+      <div id="valine_thread" class="valine-thread"></div>
+    </div>
+    <script type="text/javascript" src="//unpkg.com/leancloud-storage@3.15.0/dist/av-min.js"></script>
+    <script type="text/javascript" src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script type="text/javascript">
+      new Valine({
+        el: "#valine_thread",
+        appId: "0tZYiKXP6h6hgCaCFYoe4KiP-gzGzoHsz",
+        appKey: "5u69EHfWAIp7ts5yfOClaZ2Y",
+        placeholder: "随便说点什么叭～",
+        avatar: "mp",
+        pageSize: 10,
+        lang: "zh-CN",
+        visitor: true,
+        recordIP: true,
+        enableQQ: false,
+        meta: ['nick', 'mail', 'link'],
+        requiredFields: ['nick'],
+        
+        // Bilibili 表情包插件
+        // 设置 Bilibili 表情包地址
+        emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+        // 表情 title 和图片映射
+        emojiMaps: {
+            // 小黄脸
+            "2023": "fa6dda8b876ed38609de38aa604be5ad109b8591.png",
+            "足球": "f9157d9fa5ac3b8339cb8a8b7ad70eb40d4113c9.png",
+            "脱单doge": "bf7e00ecab02171f8461ee8cf439c73db9797748.png",
+            "微笑": "685612eadc33f6bc233776c6241813385844f182.png",
+            "口罩": "3ad2f66b151496d2a5fb0a8ea75f32265d778dd3.png",
+            "doge": "3087d273a78ccaff4bb1e9972e2ba2a7583c9f11.png",
+            "妙啊": "b4cb77159d58614a9b787b91b1cd22a81f383535.png",
+            "OK": "4683fd9ffc925fa6423110979d7dcac5eda297f4.png",
+            "星星眼": "63c9d1a31c0da745b61cdb35e0ecb28635675db2.png",
+            "辣眼睛": "35d62c496d1e4ea9e091243fa812866f5fecc101.png",
+            "吃瓜": "4191ce3c44c2b3df8fd97c33f85d3ab15f4f3c84.png",
+            "滑稽": "d15121545a99ac46774f1f4465b895fe2d1411c3.png",
+            "呲牙": "b5a5898491944a4268360f2e7a84623149672eb6.png",
+            "打call": "431432c43da3ee5aab5b0e4f8931953e649e9975.png",
+            "歪嘴": "4384050fbab0586259acdd170b510fe262f08a17.png",
+            "调皮": "8290b7308325e3179d2154327c85640af1528617.png",
+            "2022": "a783df2ce72952c44004007462324bde4b092a0c.png",
+            "虎年": "a062f5fa2bafe677e49b6963a2bbb11dd4fe1e11.png",
+            "豹富": "3d1dbe52ea16e12ff7b1c371196f728a4097fb33.png",
+            "嗑瓜子": "28a91da1685d90124cfeead74622e1ebb417c0eb.png",
+            "笑哭": "c3043ba94babf824dea03ce500d0e73763bf4f40.png",
+            "藏狐": "ba0937ef6f3ccca85e2e0047e6263f3b4da37201.png",
+            "脸红": "0922c375da40e6b69002bd89b858572f424dcfca.png",
+            "给心心": "1597302b98827463f5b75c7cac1f29ea6ce572c4.png",
+            "嘟嘟": "abd7404537d8162720ccbba9e0a8cdf75547e07a.png",
+            "哦呼": "362bded07ea5434886271d23fa25f5d85d8af06c.png",
+            "喜欢": "8a10a4d73a89f665feff3d46ca56e83dc68f9eb8.png",
+            "酸了": "92b1c8cbceea3ae0e8e32253ea414783e8ba7806.png",
+            "嫌弃": "de4c0783aaa60ec03de0a2b90858927bfad7154b.png",
+            "大哭": "2caafee2e5db4db72104650d87810cc2c123fc86.png",
+            "害羞": "9d2ec4e1fbd6cb1b4d12d2bbbdd124ccb83ddfda.png",
+            "疑惑": "b7840db4b1f9f4726b7cb23c0972720c1698d661.png",
+            "喜极而泣": "485a7e0c01c2d70707daae53bee4a9e2e31ef1ed.png",
+            "奸笑": "bb84906573472f0a84cebad1e9000eb6164a6f5a.png",
+            "笑": "81edf17314cea3b48674312b4364df44d5c01f17.png",
+            "偷笑": "6c49d226e76c42cd8002abc47b3112bc5a92f66a.png",
+            "惊讶": "f8e9a59cad52ae1a19622805696a35f0a0d853f3.png",
+            "捂脸": "6921bb43f0c634870b92f4a8ad41dada94a5296d.png",
+            "阴险": "ba8d5f8e7d136d59aab52c40fd3b8a43419eb03c.png",
+            "囧": "12e41d357a9807cc80ef1e1ed258127fcc791424.png",
+            "呆": "33ad6000d9f9f168a0976bc60937786f239e5d8c.png",
+            "抠鼻": "cb89184c97e3f6d50acfd7961c313ce50360d70f.png",
+            "大笑": "ca94ad1c7e6dac895eb5b33b7836b634c614d1c0.png",
+            "惊喜": "0afecaf3a3499479af946f29749e1a6c285b6f65.png",
+            "无语": "44667b7d9349957e903b1b62cb91fb9b13720f04.png",
+            "点赞": "1a67265993913f4c35d15a6028a30724e83e7d35.png",
+            "鼓掌": "895d1fc616b4b6c830cf96012880818c0e1de00d.png",
+            "尴尬": "cb321684ed5ce6eacdc2699092ab8fe7679e4fda.png",
+            "灵魂出窍": "43d3db7d97343c01b47e22cfabeca84b4251f35a.png",
+            "委屈": "d2f26cbdd6c96960320af03f5514c5b524990840.png",
+            "傲娇": "010540d0f61220a0db4922e4a679a1d8eca94f4e.png",
+            "疼": "905fd9a99ec316e353b9bd4ecd49a5f0a301eabf.png",
+            "冷": "cb0ebbd0668640f07ebfc0e03f7a18a8cd00b4ed.png",
+            "热": "4e58a2a6f5f1580ac33df2d2cf7ecad7d9ab3635.png",
+            "生病": "0f25ce04ae1d7baf98650986454c634f6612cb76.png",
+            "吓": "9c10c5ebc7bef27ec641b8a1877674e0c65fea5d.png",
+            "吐": "06946bfe71ac48a6078a0b662181bb5cad09decc.png",
+            "捂眼": "c5c6d6982e1e53e478daae554b239f2b227b172b.png",
+            "嘘声": "e64af664d20716e090f10411496998095f62f844.png",
+            "思考": "cfa9b7e89e4bfe04bbcd34ccb1b0df37f4fa905c.png",
+            "再见": "fc510306bae26c9aec7e287cdf201ded27b065b9.png",
+            "翻白眼": "eba54707c7168925b18f6f8b1f48d532fe08c2b1.png",
+            "哈欠": "888d877729cbec444ddbd1cf4c9af155a7a06086.png",
+            "奋斗": "bb2060c15dba7d3fd731c35079d1617f1afe3376.png",
+            "墨镜": "3a03aebfc06339d86a68c2d893303b46f4b85771.png",
+            "难过": "a651db36701610aa70a781fa98c07c9789b11543.png",
+            "撇嘴": "531863568e5668c5ac181d395508a0eeb1f0cda4.png",
+            "抓狂": "4c87afff88c22439c45b79e9d2035d21d5622eba.png",
+            "生气": "3195714219c4b582a4fb02033dd1519913d0246d.png",
+            "水稻": "d530fcaa5100ba12a17a79b55bad342d530c54e3.png",
+            "奶茶干杯": "d5a491990be551ce69f9660da948050df4eab331.png",
+            "汤圆": "93609633a9d194cf336687eb19c01dca95bde719.png",
+            "锦鲤": "643d6c19c8164ffd89e3e9cdf093cf5d773d979c.png",
+            "弹幕破百亿": "80891223ba023dff3141e377f4ea3b89918eb6a4.png",
+            "福到了": "5de5373d354c373cf1617b6b836f3a8d53c5a655.png",
+            "鸡腿": "c7860392815d345fa69c4f00ef18d67dccfbd574.png",
+            "雪花": "a41813c4edf8782047e172c884ebd4507ce5e449.png",
+            "视频卫星": "dce6fc7d6dfeafff01241924db60f8251cca5307.png",
+            "干杯": "8da12d5f55a2c7e9778dcc05b40571979fe208e6.png",
+            "黑洞": "e90ec4c799010f25391179118ccd9f66b3b279ba.png",
+            "爱心": "ed04066ea7124106d17ffcaf75600700e5442f5c.png",
+            "胜利": "b49fa9f4b1e7c3477918153b82c60b114d87347c.png",
+            "加油": "c7aaeacb21e107292d3bb053e5abde4a4459ed30.png",
+            "抱拳": "89516218158dbea18ab78e8873060bf95d33bbbe.png",
+            "响指": "1b5c53cf14336903e1d2ae3527ca380a1256a077.png",
+            "保佑": "fafe8d3de0dc139ebe995491d2dac458a865fb30.png",
+            "福": "802429a301ac5b35a0480d9526a070ce67cd8097.png",
+            "支持": "3c210366a5585706c09d4c686a9d942b39feeb50.png",
+            "拥抱": "41780a4254750cdaaccb20735730a36044e98ef3.png",
+            "跪了": "f2b3aee7e521de7799d4e3aa379b01be032698ac.png",
+            "怪我咯": "07cc6077f7f7d75b8d2c722dd9d9828a9fb9e46d.png",
+            "老鼠": "8e6fb491eb1bb0d5862e7ec8ccf9a3da12b6c155.png",
+            "牛年": "9275275ff1f2659310648221107d20bc4970f106.png",
+            "三星堆": "fc7dadaa6986e75b813aa26f3eff3281d5f1a6d1.png",
+            "洛天依": "9fe06f3594d9afaf4ee2b74770f1c3086ae0ba11.png",
+            "坎公骑冠剑_吃鸡": "c4248a7b6ab326d66c83fd1fb58f1a50f99df332.png",
+            "坎公骑冠剑_钻石": "0b97c7e50e0cc963370e62fbb9b55f51bbe7f8ab.png",
+            "坎公骑冠剑_无语": "80eba0ce64c3fc1279b4daede2f1979cb2380e78.png",
+            "来古-沉思": "4ee07ff03266d62b246be0b950bebb2abf3d997c.png",
+            "来古-呆滞": "9a70b365e523f2379f395031ceefcebb75a45903.png",
+            "来古-疑问": "032fdc0d9d9fe6334776f6c39518a959b73b98f4.png",
+            "来古-震撼": "8b40f228675602a317d32007de6b795c101135ec.png",
+            "来古-注意": "4b671ba32a2581cf40e5cd41c67b111eb8010de0.png",
+            "初音未来_大笑": "8e7f71cda83ce407b0684702983399f8ed982f17.png",
+            "原神_哇": "8188ddf95bace929d382c7a83214afde79d83bfc.png",
+            "原神_哼": "91ed33b74bc36873c3ac8b2648f70d7ab6d8ab78.png",
+            "原神_嗯": "8b0a87e414f453a29730b6e0f45ca61f2f898688.png",
+            "原神_欸嘿": "8fba438fcbe0550877b04efd768d857082307c5e.png",
+            "原神_喝茶": "1de5789fbb3526ef7823c54db7081790a38e7044.png",
+            "原神_生气": "90a38c34742899f8e84138ed55f56cad3ba611fb.png",
+            "保卫萝卜_白眼": "9fce63f38288700bf7be84f3be336cf895ba0902.png",
+            "保卫萝卜_笔芯": "5ff2ed5cb71b02010018cc5910ac7052a03769af.png",
+            "保卫萝卜_哭哭": "7d249f7c990111d3e2982f7477af15b7eb29cbd9.png",
+            "保卫萝卜_哇": "5f2370e561c32d841245f7b1aab2eef43aeb9544.png",
+            "保卫萝卜_问号": "41eb93f09fc4a4d0692a310e8a1f85ba60e96060.png",
+            "无悔华夏_不愧是你": "c58002c32ee78d45366e126f294cb3149dd64ac2.png",
+            "无悔华夏_吃瓜": "273dcff577551bafff4f1eae18561f871e73a6ba.png",
+            "无悔华夏_达咩": "cffab383f47bab7f6736ba9c8d6ac098113410d9.png",
+            "无悔华夏_点赞": "b0f2e8db405ec667c3e6aaabd7c15155b6ea8710.png",
+            "无悔华夏_好耶": "324cd79784aeb37dbf2f47f68bbe8ed5d01f975e.png",
+            "奥比岛_搬砖": "1fab697214918d91087373a999cc7ef8040ddf85.png",
+            "奥比岛_点赞": "fb0b476fe2ff30cd59385ea7d616627ac114161f.png",
+            "奥比岛_击爪": "35bba1bb8f164c5e844155548438248e6eaa8382.png",
+            "奥比岛_委屈": "fda155e7c33b40dbb94c24644e0635d47b6ef3cc.png",
+            "奥比岛_喜欢": "ed64e0c81ee194138bd9df30c65077ed978fb88c.png",
+            // tv_小电视
+            "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+            "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+            "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+            "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+            "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+            "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+            "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+            "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+            "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+            "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+            "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+            "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+            "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+            "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+            "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+            "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png",
+            "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+            "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+            "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+            "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+            "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+            "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+            "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+            "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+            "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+            "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+            "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+            "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+            "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+            "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+            "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+            "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+            "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+            "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+            "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+            "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+            "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+            "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+            "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+            "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+            "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+            "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+            "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+            "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+            "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+            "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+            "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+            "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+            "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+            "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+            // ... 更多表情
+        }
+        
+      });
+    </script>
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="/images/author.jpg" class="soft-size--round soft-style--box" alt="DragonBo">
+    
+    
+      <h2>DragonBo</h2>
+    
+    
+      <p>这一切还是精彩</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>15</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        4
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>本博客持续更新</p>
+  </div>
+</section>
+
+
+      <section class="widget-categories widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+      <span>CATEGORIES</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 20px;" class="tags-cloud-10">操作系统</a> <a href="/tags/%E6%97%A5%E5%B8%B8%EF%BC%8C%E6%91%84%E5%BD%B1/" style="font-size: 10px;" class="tags-cloud-0">日常，摄影</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;" class="tags-cloud-5">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;" class="tags-cloud-5">计算机网络</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/hlb-1002" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+          <a href="https://twitter.com/guanquanhong" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2024 <a href="/" target="_blank">DragonBo</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+<!-- copy button  -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+<!-- https://clipboardjs.com/ -->
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
