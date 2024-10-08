@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+
+  
+    <meta name="description" content="DragonBo的个人博客">
+  
+
+  
+
+  
+    <meta name="author" content="DragonBo">
+  
+
+  
+
+  
+
+  <title>TCP | DragonBo</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/hlb3.ico">
+  
+
+  <!--mathjax latex数学公式显示支持-->
+  
+  
+
+  
+
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          DragonBo
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">TCP</h1>
+          <h2 class="title-sub-wrap">
+            <strong>DragonBo</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2024-09-11T01:46:22.920Z" itemprop="datePublished">2024-09-11</time>
+          </h2>
+          
+            <h2 class="last-time">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2024-09-26T09:28:42.781Z" itemprop="dateUpdated">2024-09-26</time>
+            </h2>
+          
+          
+            <h2 id="/2024/09/11/TCP/" class="title-sub-wrap leancloud_visitors" data-flag-title="TCP">
+              <em>文章访问量</em>
+              <i class="leancloud-visitors-count"></i>
+            </h2>
+          
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">🏷️ 计算机网络</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><h2 id="TCP常见面试题"><a href="#TCP常见面试题" class="headerlink" title="TCP常见面试题"></a>TCP常见面试题</h2><h3 id="TCP基本认识"><a href="#TCP基本认识" class="headerlink" title="TCP基本认识"></a>TCP基本认识</h3><h4 id="TCP头格式"><a href="#TCP头格式" class="headerlink" title="TCP头格式"></a>TCP头格式</h4><p>几个主要的格式：</p>
+<ul>
+<li>序列号：每次建立连接时，计算机生成随机数作为初始值，通过SYN传到接收端主机，然后累积一次该数据字节数的大小，<br>用来解决网络包乱序问题。</li>
+<li>确认应答号：指下一次应该收到的数据的序列号，用于解决丢包问题。</li>
+<li>控制位：<ul>
+<li>ACK: 为1时确认应答的字段有效</li>
+<li>RST: 为1时表示TCP连接中出现异常并强制断开</li>
+<li>SYN: 为1时表示希望建立连接，并在其序列号的字段进行序列号初始值设定</li>
+<li>FIN: 为1时表示无数据发送，希望断开</li>
+</ul>
+</li>
+</ul>
+<h4 id="为什么需要TCP协议，TCP工作在哪一层"><a href="#为什么需要TCP协议，TCP工作在哪一层" class="headerlink" title="为什么需要TCP协议，TCP工作在哪一层"></a>为什么需要TCP协议，TCP工作在哪一层</h4><ol>
+<li>IP层不可靠，不能保证网络包的交付以及按序交付，还有其内部数据包的完整性。</li>
+<li>TCP工作在传输层，能保证可靠性，即保证网络包无损坏，无间隔，非冗余，按序的。</li>
+</ol>
+<h4 id="什么是TCP"><a href="#什么是TCP" class="headerlink" title="什么是TCP"></a>什么是TCP</h4><p>是面向连接，可靠的，基于字节流的传输层通信协议。</p>
+<ul>
+<li>面向连接：一对一时才能连接，不同于UDP的一对多。</li>
+<li>可靠的：网络链路中出现任何变化，都能保证报文到达接收端。</li>
+<li>字节流：传递的消息被操作系统分为多个TCP报文，且报文时有序的。</li>
+</ul>
+<h4 id="什么是TCP连接"><a href="#什么是TCP连接" class="headerlink" title="什么是TCP连接"></a>什么是TCP连接</h4><p>连接： 用于保证可靠性和流量控制维护的某些状态信息，信息包括Socket,序列号和窗口大小。</p>
+<ul>
+<li>socket: 由IP地址和端口号组成。</li>
+<li>序列号： 用来解决乱序问题。</li>
+<li>窗口大小： 用来做流量控制。</li>
+</ul>
+<h4 id="如何唯一确定一个TCP连接"><a href="#如何唯一确定一个TCP连接" class="headerlink" title="如何唯一确定一个TCP连接"></a>如何唯一确定一个TCP连接</h4><p>四元组： 源地址，源端口，目标地址，目标端口</p>
+<p>地址字段（32位） 都在IP头部中，通过IP协议发送给对方主机。</p>
+<p>端口字段（16位） 在TCP头部，告诉TCP协议该发到哪个进程。</p>
+<h6 id="一个服务端端口的tcp的最大连接数是多少"><a href="#一个服务端端口的tcp的最大连接数是多少" class="headerlink" title="一个服务端端口的tcp的最大连接数是多少"></a>一个服务端端口的tcp的最大连接数是多少</h6><p>服务端ip一般固定，因此取决于客户端IP数和客户端端口数，即最大连接数是两者相乘。</p>
+<p>但这只是理论值，一般达不到，受以下的情况约束：</p>
+<ul>
+<li>文件描述符限制：每个tcp连接都是一个文件，文件描述符被占满就不能再打开 。<ul>
+<li>系统级</li>
+<li>用户级</li>
+<li>进程级</li>
+</ul>
+</li>
+<li>内存限制： TCP连接都会占用内存，内存占满后会OOM。</li>
+</ul>
+<h4 id="UDP-和-TCP有什么区别？应用场景是什么？"><a href="#UDP-和-TCP有什么区别？应用场景是什么？" class="headerlink" title="UDP 和 TCP有什么区别？应用场景是什么？"></a>UDP 和 TCP有什么区别？应用场景是什么？</h4><p>UDP头部格式包括：目标和源端口，包长度，校验和。</p>
+<p>TCP 和 UDP 区别</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>连接</td>
+<td>tcp面向连接，因此传输前需要建立连接</td>
+<td>udp不需要连接，即刻传输数据</td>
+</tr>
+<tr>
+<td>服务对象</td>
+<td>TCP是一对一两点服务</td>
+<td>udp是支持一对一，一对多，多对多</td>
+</tr>
+<tr>
+<td>可靠性</td>
+<td>tcp是可靠交付数据的</td>
+<td>udp是尽最大努力交付，不保证可靠交付数据，但可以基于此实现一个可靠的协议</td>
+</tr>
+<tr>
+<td>拥塞控制，流量控制</td>
+<td>TCP有，能保证安全呢</td>
+<td>udp没有，即使网络拥堵了，也不会影响UDP发送速率</td>
+</tr>
+<tr>
+<td>首部开销</td>
+<td>TCP首部长度较长，有一定开销</td>
+<td>udp首部只有8字节，且固定不变，开销小</td>
+</tr>
+<tr>
+<td>传输方式</td>
+<td>tcp是流失传输，没有边界，但保证顺序和可靠</td>
+<td>udp是一个包一个包发送，有边界，但可能会丢包和乱序</td>
+</tr>
+<tr>
+<td>分片不同</td>
+<td>tcp数据如果大于mss大小，则会在传输层进行分片，目标主机收到后也同样再传输层组装，中途丢失某片，只需要传输该片</td>
+<td>udp数据大小大于mtu时，会在IP层分片，同样传输完在ip层组装</td>
+</tr>
+<tr>
+<td>应用场景</td>
+<td>FTP文件传输，HTTP&#x2F;HTTPS</td>
+<td>包总量较少的通信，视频音频等多媒体通信,广播通信</td>
+</tr>
+</tbody></table>
+<ul>
+<li>为什么udp头部没有首部长度而TCP头部有呢<ul>
+<li>TCP有可变长的选项字段，而UDP没有，所以多了一个字段记录首部长度。</li>
+</ul>
+</li>
+<li>为什么UDP头部有包长度字段，而TCP头部则没有包长度字段<ul>
+<li>TCP数据长度 &#x3D; IP长度 - IP首部长度 - tcp首部长度</li>
+<li>udp按道理来说基于ip层，也可以计算出来长度，可靠的说法是为了网络设备硬件设计和处理方便，补齐为4字节的整数倍。</li>
+</ul>
+</li>
+</ul>
+<h4 id="TCP-和-UDP可以使用同一个端口吗"><a href="#TCP-和-UDP可以使用同一个端口吗" class="headerlink" title="TCP 和 UDP可以使用同一个端口吗"></a>TCP 和 UDP可以使用同一个端口吗</h4><p>首先是可以的。</p>
+<p>数据链路层靠MAC地址，网络层靠IP地址，传输层则靠端口寻址。因此传输层的端口号的作用是为了区分同一个主机上不同应用程序的数据包。</p>
+<p>传输层有两个传输协议,TCP和UDP，这两在内核中是完全独立的软件模块，各自绑定的端口号也相互独立，两者都可以拥有同一个端口号</p>
+<h3 id="TCP连接建立"><a href="#TCP连接建立" class="headerlink" title="TCP连接建立"></a>TCP连接建立</h3><h4 id="TCP三次握手过程"><a href="#TCP三次握手过程" class="headerlink" title="TCP三次握手过程"></a>TCP三次握手过程</h4><ul>
+<li>一开始，客户端服务端都处在close状态，先是服务端主动监听某个端口，处于LISTEN状态。</li>
+<li>客户端随机初始化序列号，并将其置于序列号顶部，同时将syn标志位置1，然后将SYN报文发送给服务端，该报文不包含应用层数据。</li>
+<li>服务端收到报文后，同样随机初始化自己的序号，并填入TCP首部的序列号字段，其次把TCP首部的确认应答号字段填入isn(初始序列号）+1，然后把SYN和ACK标志位置1。</li>
+<li>客户端收到报文后，将ACk标志位置1，确认应答号字段处填入isn+1,最后把报文发送给服务端，此次报文可以携带客户到服务端的数据。</li>
+</ul>
+<h5 id="为什么要握手三次"><a href="#为什么要握手三次" class="headerlink" title="为什么要握手三次"></a>为什么要握手三次</h5><ul>
+<li>原因一： 避免历史连接，为了防止旧的重复连接初始化造成混乱。旧的syn发送给服务端后，服务端会返回syn+ack信息，客户端对比ACK信息后，不是期望值，并发起RST<ul>
+<li>而二次连接，服务端没有中间状态给客户端来阻止历史连接，导致服务端可能建立一个历史连接但客户端不需要，这样就造成了资源浪费。</li>
+</ul>
+</li>
+<li>原因二： 同步双方初始化序列号：序列号的作用：1.接收方可以去除重复数据2.接收方可以根据数据包的序列号按序接收3.可以标识发送出去的数据包中，哪些已经被对方收到。<ul>
+<li>一来一回完成了双方的序列号同步。四次握手也可以完成，但是二三步合为一步，就是三次握手了。</li>
+</ul>
+</li>
+<li>原因三：避免资源浪费：如两次握手。</li>
+</ul>
+<h5 id="为什么每次建立TCP连接时，初始化序列号都要求不一样？"><a href="#为什么每次建立TCP连接时，初始化序列号都要求不一样？" class="headerlink" title="为什么每次建立TCP连接时，初始化序列号都要求不一样？"></a>为什么每次建立TCP连接时，初始化序列号都要求不一样？</h5><p>主要原因：</p>
+<ul>
+<li>为了防止历史报文被下一个相同的四元组的连接接收(主要原因）；</li>
+<li>为了安全性。</li>
+</ul>
+<h5 id="初始化序列号ISN如何随机产生"><a href="#初始化序列号ISN如何随机产生" class="headerlink" title="初始化序列号ISN如何随机产生"></a>初始化序列号ISN如何随机产生</h5><p>基于时钟计时器递增的，基本不可能随机生成一样的序列号。</p>
+<h4 id="IP层会分片，那为什么TCP层还需要MSS"><a href="#IP层会分片，那为什么TCP层还需要MSS" class="headerlink" title="IP层会分片，那为什么TCP层还需要MSS"></a>IP层会分片，那为什么TCP层还需要MSS</h4><ul>
+<li>MTU:  一个网络包的最大长度，以太网一般为1500字节；</li>
+<li>MSS: 除去IP和TCP头部之后，一个网络包锁能容纳的TCP是数据的最大长度。</li>
+</ul>
+<p>回到问题，如果在TCP层不分层的话，当大于MTU时，就会在IP层分层，这样万一在传输中丢失一个包，就需要重传<br>，但ip层没有重传机制，所以由TCP层传输整个报文，也就是说一个IP分片丢了，就需要tcp层传输整个报文。</p>
+<p>所以在建立连接时，会协商双方的MSS值，tcp层就完成了分片，当然如果tcp分片丢失，重发也是以MSS为单位。</p>
+<h4 id="第一次握手丢失了，会发生什么"><a href="#第一次握手丢失了，会发生什么" class="headerlink" title="第一次握手丢失了，会发生什么"></a>第一次握手丢失了，会发生什么</h4><p>客户端没有等到SYN+ACK报文，就会触发超时重传机制，且超时重传的序列号是一样的，重传等待时间和最大重传次数可由客户端自己设定。<br>一般等待时间是后一次比前一次时间长两倍。过了最大重传次数后，就会断开连接。</p>
+<h4 id="第二次握手丢失，会发生什么"><a href="#第二次握手丢失，会发生什么" class="headerlink" title="第二次握手丢失，会发生什么"></a>第二次握手丢失，会发生什么</h4><p>客户端没等到SYN+ACK报文，会触发超时重传机制，同样服务端没等到ACK报文，也会触发重传机制，这样当双方都达到最大重传次数后，就会断开连接。</p>
+<h4 id="第三次握手丢失，会发生什么"><a href="#第三次握手丢失，会发生什么" class="headerlink" title="第三次握手丢失，会发生什么"></a>第三次握手丢失，会发生什么</h4><p>服务单没等到ACK报文，就会触发重传机制，直到达到最大重传次数。</p>
+<h4 id="什么是SYN攻击，怎样避免SYN攻击"><a href="#什么是SYN攻击，怎样避免SYN攻击" class="headerlink" title="什么是SYN攻击，怎样避免SYN攻击"></a>什么是SYN攻击，怎样避免SYN攻击</h4><p>攻击者伪造不同ip地址的报文，将服务端的半连接队列打满，导致后续接收到正常的syn都会被丢弃，从而影响服务端为正常用户服务。</p>
+<p>什么是半连接队列：</p>
+<ul>
+<li>第二次握手时，服务端内部既要接收第一次握手的syn报文，又要准备ack,接收到的syn报文存放在一个队列里，这个队列就是半连接队列，<br>然后服务端从半连接队列里拿出一个放入另一个队列，这个新的队列叫全连接队列，然后应用通过调用Accpet() socket接口，从队列取出连接对象。</li>
+</ul>
+<p>那如何避免SYN攻击：</p>
+<ul>
+<li>调大NETdev_max_backlog :<ul>
+<li>网卡接收速度大于内核处理速度时，会有一个队列用于存储这些数据包，可以适当扩展该队列长度。</li>
+</ul>
+</li>
+<li>增大TCP半连接队列：</li>
+<li>开启 Net.ipv4.tcp_syncookies<ul>
+<li>开启时，相当于绕过了半连接直接建立起了连接，具体做法是队列已满，接收到的SYN报文不存放到队列中，而是发送SYN COOKIE给客户端，等待服务端接收到了客户端都ack时，会检查<br>该ACK的合法性，合法则放到全连接队列中。</li>
+</ul>
+</li>
+<li>减少 SYN + ACK 重传次数</li>
+</ul>
+<h3 id="TCP连接断开"><a href="#TCP连接断开" class="headerlink" title="TCP连接断开"></a>TCP连接断开</h3><h4 id="TCP四次挥手的过程"><a href="#TCP四次挥手的过程" class="headerlink" title="TCP四次挥手的过程"></a>TCP四次挥手的过程</h4><ul>
+<li>客户端发送FIN报文，进入FIN_WAIT_1状态</li>
+<li>服务端收到该报文后发送ACK应答报文，进入CLOSE_WAIT状态</li>
+<li>客户端收到应答报文后进入FIN_WAIT_2状态</li>
+<li>等待服务端处理完数据，发送FIN报文给客户端，之后服务端进入LAST_ACK状态</li>
+<li>客户端收到报文后，回应ACK应答报文，之后进入TIME_WAIT状态</li>
+<li>服务端收到报文后，进入CLOSE状态，</li>
+<li>客户端则经过2MSL时间后进入CLOSE状态</li>
+</ul>
+<h4 id="为什么是四次"><a href="#为什么是四次" class="headerlink" title="为什么是四次"></a>为什么是四次</h4><p>因为FIN报文和ACK报文是分开发送的，但是在特定情况下是可以变成三次的。</p>
+<h4 id="第一次挥手丢失了，会发生什么"><a href="#第一次挥手丢失了，会发生什么" class="headerlink" title="第一次挥手丢失了，会发生什么"></a>第一次挥手丢失了，会发生什么</h4><p>触发重传机制，达到最大重传次数后，会等待一段时间，如果还没有收到，客户端就会断开连接。</p>
+<h4 id="第二次挥手丢失了，会发生什么"><a href="#第二次挥手丢失了，会发生什么" class="headerlink" title="第二次挥手丢失了，会发生什么"></a>第二次挥手丢失了，会发生什么</h4><p>客户端触发重传机制，因为ACK报文不会重传，所以重传FIN报文</p>
+<h4 id="第三次挥手丢失，会发生什么"><a href="#第三次挥手丢失，会发生什么" class="headerlink" title="第三次挥手丢失，会发生什么"></a>第三次挥手丢失，会发生什么</h4><p>服务端一直收不到ACK报文，就会触发服务端重传机制，同样达到最大重传次数后，会等待一段时间后服务端关闭。</p>
+<p>客户端在第二次挥手后进入FIN_WAIT_2状态，这个状态有时间限制，过时则进入关闭状态。</p>
+<h4 id="第四次挥手丢失，会发生什么"><a href="#第四次挥手丢失，会发生什么" class="headerlink" title="第四次挥手丢失，会发生什么"></a>第四次挥手丢失，会发生什么</h4><p>服务端没收到ACK报文，就会一直重传，直到达到最大次数后等待上次超时时间的2倍后，关闭连接。</p>
+<p>客户端收到第三次挥手后进入TIME_WAIT状态，开启时长为2msl的定时器，期间收到第三次挥手就重置定时器，无则等待时间结束，客户端断开连接。</p>
+<h4 id="为什么等待时间是2MSL"><a href="#为什么等待时间是2MSL" class="headerlink" title="为什么等待时间是2MSL"></a>为什么等待时间是2MSL</h4><p>MSL: 报文最大生存时间</p>
+<p>MSL与TTL区别：MSL单位是时间，而TTL单位是经过路由跳数。因此MSL应该大与TTL消耗时间，保证报文自然消亡。</p>
+<p>被动关闭方在没有收到ACK应答后会触发重发，再次收到ACK应答刚好是2MSL，及就是2MSL时间允许报文丢失一次。</p>
+<h4 id="为什么需要TIME-WAIT状态"><a href="#为什么需要TIME-WAIT状态" class="headerlink" title="为什么需要TIME_WAIT状态"></a>为什么需要TIME_WAIT状态</h4><ul>
+<li>为了防止历史连接中的数据，被后面相同的四元组的连接错误的接收<ul>
+<li>因为序列号是基于计数器建立的，本身就可以视为32位计数，循环一次要4.55个小时，所以有历史数据和新数据序列号相同的情况。</li>
+</ul>
+</li>
+<li>保证被动关闭连接的一方，能被正确的关闭<ul>
+<li>等待足够的时间确保最后的ACK能让被动关闭方接收，从而帮助其正常关闭。</li>
+</ul>
+</li>
+</ul>
+<h4 id="TIME-WAIT过多的危害"><a href="#TIME-WAIT过多的危害" class="headerlink" title="TIME_WAIT过多的危害"></a>TIME_WAIT过多的危害</h4><ul>
+<li>占用系统资源</li>
+<li>占用端口资源</li>
+</ul>
+<p>而且服务端和客户端影响不相同：</p>
+<p>客户端TIME_WAIT状态过多会占满所有端口资源，但被使用的端口还可以继续对另一个服务端发起连接。<br>只是说对于目的端口和目的port都一样的服务端无法发起连接。</p>
+<p>服务端状态过多不会导致端口资源受限，因为服务端只监听一个端口，不影响和其他的端口建立连接。</p>
+<h4 id="如何优化TIME-WAIT"><a href="#如何优化TIME-WAIT" class="headerlink" title="如何优化TIME_WAIT"></a>如何优化TIME_WAIT</h4><ul>
+<li>打开相应的参数，使得处于TIME_WAIT的socket为新连接所用。</li>
+<li>给该状态设置超时时间，一旦超时就重置该状态。</li>
+<li>设置关闭按钮，将选择关闭的权力交给客户端。</li>
+</ul>
+<h4 id="服务器出现大量TIME-WAIT的原因"><a href="#服务器出现大量TIME-WAIT的原因" class="headerlink" title="服务器出现大量TIME_WAIT的原因"></a>服务器出现大量TIME_WAIT的原因</h4><p>原因是服务端自己主动切断很多连接</p>
+<p>服务端主动切断连接的原因：</p>
+<ul>
+<li>HTTP没有使用长连接<ul>
+<li>当需要切断长连接，客户端和服务端任意一方在请求头中携带断开连接的信息，都是服务端主动断开连接的。</li>
+</ul>
+</li>
+<li>HTTP长连接超时</li>
+<li>HTTP长连接的请求数量达到上限</li>
+</ul>
+<h4 id="服务器大量出现CLOSE-WAIT的原因"><a href="#服务器大量出现CLOSE-WAIT的原因" class="headerlink" title="服务器大量出现CLOSE_WAIT的原因"></a>服务器大量出现CLOSE_WAIT的原因</h4><p>原因就是服务端没有调用close函数关闭连接。没有调用的原因有很多，都是因为服务端创立连接时的步骤有出错的地方。<br>如：没将socket注册到epoll里，没调用accept获取已连接的socket。</p>
+<h4 id="对于已经建立的连接，但客户端出现了问题"><a href="#对于已经建立的连接，但客户端出现了问题" class="headerlink" title="对于已经建立的连接，但客户端出现了问题"></a>对于已经建立的连接，但客户端出现了问题</h4><p>客户端发生故障，服务端就不会发送信息给客户端，但一直处于这样的状态就会导致资源浪费。</p>
+<p>为了避免这种情况，tcp内有保活机制：工作原理是这样的，当长时间服务端不给客户端发消息，tcp就每隔一个时间间隔<br>发送一个探测报文，且探测报文包含的数据很少，连续几个报文没有相应，就会判为死亡，并将消息向上传递，当然若有回应就会重置<br>时间。</p>
+<p>总共三种情况：</p>
+<ul>
+<li>对端程序正常工作：探测报文发送后会有相应，然后重置tcp保活时间。</li>
+<li>对端主机宕机并重启，探测报文发送后会产生一个RST报文，这样服务端就能发现连接重置。</li>
+<li>对端主机宕机：没有回应判为死亡。</li>
+</ul>
+<h4 id="已经建立的连接，服务端进程崩溃会发生什么"><a href="#已经建立的连接，服务端进程崩溃会发生什么" class="headerlink" title="已经建立的连接，服务端进程崩溃会发生什么"></a>已经建立的连接，服务端进程崩溃会发生什么</h4><p>服务端进程崩溃后，内核回收所有TCP连接资源，然后由内核发送第一次挥手FIN报文，后续挥手过程也是在内核完成的。</p>
+<p>所以，总的来说，服务端进程崩溃了，也能完成四次挥手。</p>
+<h3 id="Socket编程"><a href="#Socket编程" class="headerlink" title="Socket编程"></a>Socket编程</h3><h4 id="accept发生在三次握手的哪一步"><a href="#accept发生在三次握手的哪一步" class="headerlink" title="accept发生在三次握手的哪一步"></a>accept发生在三次握手的哪一步</h4><p>客户端的connect成功返回是第二次握手，服务端accept成功返回是第三次握手之后。</p>
+<h4 id="客户端调用close之后，连接断开的流程是什么"><a href="#客户端调用close之后，连接断开的流程是什么" class="headerlink" title="客户端调用close之后，连接断开的流程是什么"></a>客户端调用close之后，连接断开的流程是什么</h4><p><img src="/../images/8_28/img_13.png" alt="img_13.png"></p>
+<h4 id="没有accpet，能建立TCP连接嘛"><a href="#没有accpet，能建立TCP连接嘛" class="headerlink" title="没有accpet，能建立TCP连接嘛"></a>没有accpet，能建立TCP连接嘛</h4><p>可以的，只是不能进行读写操作。简单来说ACCEPT只是负责取一个建立连接的socket。</p>
+<h4 id="没有listen-能建立连接嘛"><a href="#没有listen-能建立连接嘛" class="headerlink" title="没有listen,能建立连接嘛"></a>没有listen,能建立连接嘛</h4><p>可以的，客户端自连或者互连。</p>
+<h2 id="TCP-1"><a href="#TCP-1" class="headerlink" title="TCP"></a>TCP</h2><h3 id="重传机制"><a href="#重传机制" class="headerlink" title="重传机制"></a>重传机制</h3><p>为了针对数据包丢失情况</p>
+<ul>
+<li>超时重传</li>
+<li>快速重传</li>
+<li>SACK</li>
+<li>D-SACK</li>
+</ul>
+<h4 id="超时重传"><a href="#超时重传" class="headerlink" title="超时重传"></a>超时重传</h4><p>TCP发生超时重传的情况：</p>
+<ul>
+<li>数据包丢失</li>
+<li>确认应答丢失</li>
+</ul>
+<p>超时时间的设置：</p>
+<ul>
+<li>RTT；是指数据发送时刻到接收确认时刻的差值。</li>
+<li>RTO：表示超时时间</li>
+</ul>
+<p>过大的RTO会导致效率较低，过小的RTO会导致数据未丢失就重传了。<strong>合理的时间是RTP值略大于报文往返RTT的值</strong>。</p>
+<p>但实际上RTO是一个动态变化的值。</p>
+<h4 id="快速重传"><a href="#快速重传" class="headerlink" title="快速重传"></a>快速重传</h4><p>不以时间为驱动，是以数据驱动重传。</p>
+<p>当收到三个同样的信息如ACK2的时候，就会在定时器过期前重传丢失的Seq2。</p>
+<p>但又一个问题是重传一个还是重传所有。</p>
+<h4 id="SACK方法"><a href="#SACK方法" class="headerlink" title="SACK方法"></a>SACK方法</h4><p>可以解决上述问题，选择性确认（SACK）。</p>
+<p>作法是在TCP头部加上(SACK)信息，这样可以将已收到的信息发送给发送方，这样就只需要重传丢失的数据。</p>
+<h4 id="Duplicate-SACK"><a href="#Duplicate-SACK" class="headerlink" title="Duplicate SACK"></a>Duplicate SACK</h4><p>主要是使用了SACK来告诉发送方有哪些数据被重复接收了。由此能判断是ACK丢包了还是网络延时了。</p>
+<h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><p>一应一答的方式，如果数据包往返时间越长，通信效率越低。</p>
+<p>窗口是指：无需等待确认应答，而可以继续发送数据的最大值。</p>
+<p>这其中如果中途有数据丢失，如接收到了1，2，3的序号，但是4序号丢失，那么接收方会发送确认信息表示收到序号3及以前的数据。<br>这叫做累积确认。</p>
+<ul>
+<li>窗口大小怎么确定？<ul>
+<li>TCP字段里有window字段，通常窗口大小是由接收方决定。</li>
+</ul>
+</li>
+<li>发送方滑动窗口<ul>
+<li><img src="/../images/9_22/img.png" alt="img.png"> </li>
+<li>发送并收到确认数据后窗口右移，可用窗口用完，就不能再发送数据了。</li>
+</ul>
+</li>
+<li>程序如何表示发送方四个部分<ul>
+<li>使用三个指针跟踪，其中两个指针是绝对指针，一个是相对指针。两个绝对指针分别指着已发送但未收到数据头部和可用窗口大小的头部。<br>而指向未发送但总大小超过接收方处理范围的头部是相对指针。</li>
+</ul>
+</li>
+<li>接收方滑动窗口：分为三个部分：<ul>
+<li><img src="/../images/9_22/img_1.png" alt="img_1.png"></li>
+</ul>
+</li>
+<li>接收窗口和发送窗口大小相等嘛<ul>
+<li>并不完全相等，约等于，因为滑动窗口是动态变化的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h3><p>为了防止对方数据处理不过来，即避免发送方数据填满接收方的缓存。</p>
+<p>如何实现：</p>
+<ul>
+<li>操作系统会调整缓冲区大小，缓冲区里存放的是发送窗口和接收窗口中存放的字节数。</li>
+<li>缓冲区被占满，接收窗口就会相对应的减小。</li>
+</ul>
+<p>当服务资源紧张的时候，缓冲区会变小，但应用程序又无法及时读取缓存数据。可能会造成数据丢包。</p>
+<p>因此为了防止这种情况，TCP规定不允许同时减少缓存又收缩窗口，而是先收缩窗口，过段时间再减少缓存。</p>
+<h4 id="窗口关闭"><a href="#窗口关闭" class="headerlink" title="窗口关闭"></a>窗口关闭</h4><p>如果窗口大小为0，就会阻止发送方给接收方传递数据，直到窗口变为非0为止，这就是窗口关闭。</p>
+<p>而潜在风险是造成死锁，即接收方发送应答，但发送方已经窗户关闭，等待窗口非0的通知，这样双方都在等待，陷入了死循环。</p>
+<p>解决办法也是很常见，只要TCP连接一方收到对方的零窗口通知，就会启动持续计时器，超时后发送窗口探测报文。</p>
+<h4 id="糊涂窗口综合征"><a href="#糊涂窗口综合征" class="headerlink" title="糊涂窗口综合征"></a>糊涂窗口综合征</h4><p>当接收方过忙而来不及取走窗口里的数据，就会导致发送方窗口越来越小。到最后接收方腾出几个字节告诉对方又这几个字节<br>的窗口，发送方也会提供这几个字节。</p>
+<p>就好像满载是25的车，每次只搭载1-2人就发车。</p>
+<p>如何解决？</p>
+<ul>
+<li>让接收方不通告小窗口给发送方<ul>
+<li>当窗口大小小于min时，就会向发送方通告窗口为0，阻止发送方发送数据。</li>
+</ul>
+</li>
+<li>让发送方避免发送小数据<ul>
+<li>使用Nagle算法，思路就是延时处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h3><p>避免网络出现拥堵后，大量数据包丢失重传造成新的丢失，即为恶行循环。即避免发送方数据填满整个网络。</p>
+<h4 id="拥塞窗口"><a href="#拥塞窗口" class="headerlink" title="拥塞窗口"></a>拥塞窗口</h4><p>是发送方维护的一个状态变量，会根据网络的拥塞程度动态变化。</p>
+<p>探知拥塞的方式是是否发生从超时重传。</p>
+<h4 id="拥塞控制主要的算法"><a href="#拥塞控制主要的算法" class="headerlink" title="拥塞控制主要的算法"></a>拥塞控制主要的算法</h4><ul>
+<li>慢启动<ul>
+<li>每当发送方收到一个ACK，拥塞窗口CWND大小就会加1。就是慢慢提高数据包的数量。当然有对应的门限，控制什么时候<br>启动和停止。</li>
+</ul>
+</li>
+<li>拥塞避免算法<ul>
+<li>每当收到一个ACK时，cwnd增加1&#x2F;cwnd。及就是将原来的指数型增长变为线性增长。</li>
+</ul>
+</li>
+<li>拥塞发生<ul>
+<li>超时重传情况下：将cwnd置为1，然后重新慢启动。</li>
+<li>快速重传情况下：将cwnd置为原来一半，然后进入快速恢复（将cwnd加三并重传数据，如果收到重复的ACK说明网络还行，<br>每收到一个加1(加速让接收方收到数据），当收到新的ACK时候，说明之前的数据都收到了，网络恢复过程结束，恢复之前的状态。）</li>
+</ul>
+</li>
+</ul>
+<h5 id="TCP延迟-确认"><a href="#TCP延迟-确认" class="headerlink" title="TCP延迟 确认"></a>TCP延迟 确认</h5><p>接收数据后会等待200ms或者其他时间，中途没有数据被接收则200ms后发送确认信号，中途一旦有接收信号，就立刻<br>发送确认信号。</p>
+<h2 id="如何优化TCP"><a href="#如何优化TCP" class="headerlink" title="如何优化TCP"></a>如何优化TCP</h2><h3 id="TCP三次握手性能提升"><a href="#TCP三次握手性能提升" class="headerlink" title="TCP三次握手性能提升"></a>TCP三次握手性能提升</h3><h4 id="客户端优化"><a href="#客户端优化" class="headerlink" title="客户端优化"></a>客户端优化</h4><p>三次握手的首要目的是同步序列号。<br>在客户端这方，应当调整客户端三次握手的时间上限，当网络繁忙时候，应该将重传次数降低，尽快将错误暴露给应用程序。</p>
+<h4 id="服务端优化"><a href="#服务端优化" class="headerlink" title="服务端优化"></a>服务端优化</h4><p>服务端这里在接收到syn后，会建立一个半连接队列，这个队列容易遭受到SYN攻击，及就是将整个半连接队列占满。</p>
+<ul>
+<li>这里的解决方法是：1.调整队列长度，调整半连接队列长度的同时，还应该调整全连接队列。2.开启SYNcookies功能<br>这样就可以不使用SYN半连接队列的情况下成功建立连接。</li>
+</ul>
+<p>再一个就是服务端的重发次数，当网络繁忙时，报文丢失严重，应该调大重发次数，反之调小重发次数。</p>
+<p>还有就是全连接队列满了，短暂的满的话，客户端一直重发数据，当队列有空位时，就会建立连接。也要适当调节全连接队列的长度。</p>
+<h4 id="如何绕过三次握手"><a href="#如何绕过三次握手" class="headerlink" title="如何绕过三次握手"></a>如何绕过三次握手</h4><p>TCP FAST OPEN功能</p>
+<p>将连接建立缩短到2RTT。<br>具体实现如下：</p>
+<p><img src="/../images/9_22/img_2.png" alt="img_2.png"></p>
+<h3 id="TCP四次挥手的性能提升"><a href="#TCP四次挥手的性能提升" class="headerlink" title="TCP四次挥手的性能提升"></a>TCP四次挥手的性能提升</h3><h4 id="主动方的优化"><a href="#主动方的优化" class="headerlink" title="主动方的优化"></a>主动方的优化</h4><ul>
+<li>close函数和shutdown函数：前者完全断开连接，详细的是调用close函数的孤儿连接，及就是连接一个空线程，后者只控制关闭一个方向的连接，如读方向。</li>
+</ul>
+<h5 id="FIN-WAIT1状态优化"><a href="#FIN-WAIT1状态优化" class="headerlink" title="FIN_WAIT1状态优化"></a>FIN_WAIT1状态优化</h5><p>主动方发送fin报文后进入该状态。一般调节重发次数即可，但遇到fin发送不出去时，调整孤儿连接的最大数量。</p>
+<h5 id="FIN-WAIT2状态优化"><a href="#FIN-WAIT2状态优化" class="headerlink" title="FIN_WAIT2状态优化"></a>FIN_WAIT2状态优化</h5><p>主动方收到ACK报文后，处于该状态，如果使用shutdown函数关闭，有可能一直处于该状态，用close关闭就无了，可以调节持续时间达到优化。</p>
+<h5 id="TIME-WAIT状态优化"><a href="#TIME-WAIT状态优化" class="headerlink" title="TIME_WAIT状态优化"></a>TIME_WAIT状态优化</h5><ul>
+<li>调节最大连接数量</li>
+<li>复用该状态连接（只适用于主动方）</li>
+<li>在socket里设置调用close关闭连接，这样会直接发送RST标志对端，由此跳过四次挥手，也就跳过了该状态。</li>
+</ul>
+<h4 id="被动方的优化"><a href="#被动方的优化" class="headerlink" title="被动方的优化"></a>被动方的优化</h4><p>当双方同时关闭连接，会进入新的状态：closing，它替代了fin_wait2状态。</p>
+<h3 id="TCP传输数据的性能提升"><a href="#TCP传输数据的性能提升" class="headerlink" title="TCP传输数据的性能提升"></a>TCP传输数据的性能提升</h3><h4 id="滑动窗口-1"><a href="#滑动窗口-1" class="headerlink" title="滑动窗口"></a>滑动窗口</h4><p>适当调节滑动窗口的大小，也就是调节缓冲区的内存大小，但因为网络的传输能力有限，所以也不是越大越好。</p>
+<h4 id="确定最大传输速度"><a href="#确定最大传输速度" class="headerlink" title="确定最大传输速度"></a>确定最大传输速度</h4><p>让发送缓冲区不超过带宽时延积</p>
+<h2 id="为什么TCP是面向字节流的协议"><a href="#为什么TCP是面向字节流的协议" class="headerlink" title="为什么TCP是面向字节流的协议"></a>为什么TCP是面向字节流的协议</h2><h3 id="如何理解字节流"><a href="#如何理解字节流" class="headerlink" title="如何理解字节流"></a>如何理解字节流</h3><ul>
+<li>UDP为什么是面向报文对端协议<ul>
+<li>操作系统不会对消息进行拆分，每个udp报文就是一个用户消息的边界，在系统里有队列存储UDP报文，用于区分不同报文。</li>
+</ul>
+</li>
+<li>为什么tcp是面向字节流的协议<ul>
+<li>操作系统将消息分组为多个TCP报文，不能认为一个用户消息对应一个TCP报文了，所以叫他面向字节流的协议。</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何解决粘包问题"><a href="#如何解决粘包问题" class="headerlink" title="如何解决粘包问题"></a>如何解决粘包问题</h3><p>粘包是指两个消息的部分内容被分到同一个tcp报文里，但是接收方不知道消息的边界，因此无法读出有效消息。</p>
+<p>所以问题的关键是知道边界在哪儿，一般分包的方式有三种：</p>
+<ul>
+<li>固定长度消息</li>
+<li>特殊字符作为边界</li>
+<li>自定义消息结构</li>
+</ul>
+<h2 id="为什么每次建立连接，初始化序列号都要不一样"><a href="#为什么每次建立连接，初始化序列号都要不一样" class="headerlink" title="为什么每次建立连接，初始化序列号都要不一样"></a>为什么每次建立连接，初始化序列号都要不一样</h2><ul>
+<li>每次不一样是为了防止历史报文被下一次相同四元组连接接收。</li>
+</ul>
+<p>但问题是TIME_WAIT状态会持续2msl时长，历史报文早就消失了</p>
+<ul>
+<li>当然正常挥手是这样的，但不能保证每次能正常挥手，所以就需要初始化序列号（也只是更大程度的规避，但不能保证百分百）。</li>
+</ul>
+<p>双端随机初始化序列会初始的一样嘛</p>
+<ul>
+<li>因为是基于时钟计时器递增的，所以基本不可能一样。</li>
+</ul>
+<p>但是还有一个问题是如果网速过快，会发生序列号回绕为初始值的情况</p>
+<ul>
+<li>解决办法是：TCP时间戳，它有两个好处<ul>
+<li>便于精确计算RTT</li>
+<li>能防止序列号回绕（每个报文带有一个时间戳，且是连续递增的，当发现时间戳不是连续递增的，表示已经过期，直接丢弃这个数据包）</li>
+</ul>
+</li>
+<li>当然时间戳也会回绕<ul>
+<li>解决方案是：1.增加时间戳大小 2.将一个与时钟频率无关的值作为时间戳，这样时钟频率增加但时间戳的增速不变。</li>
+</ul>
+</li>
+</ul>
+<h2 id="SYN报文什么时候会被丢弃"><a href="#SYN报文什么时候会被丢弃" class="headerlink" title="SYN报文什么时候会被丢弃"></a>SYN报文什么时候会被丢弃</h2><h3 id="tcp-tw-recycle"><a href="#tcp-tw-recycle" class="headerlink" title="tcp_tw_recycle"></a>tcp_tw_recycle</h3><h4 id="PAWS机制"><a href="#PAWS机制" class="headerlink" title="PAWS机制"></a>PAWS机制</h4><p>时间戳开启之后，PAWS机制开始工作，PAWA机制要求连接双方维护最近一次数据包的时间戳，为了与下一次进行对比，删除过期的数据。</p>
+<p>当开启 recyle 和 timestamps选项后，自动开启per_host的PAWS机制。</p>
+<p>per-host是对【对端ip做PAWS机制】的PAWA机制，如果客户端网络环境是NAT网关，那么客户端环境中的每一台机器通过NAT网关后，都会是相同的<br>ip地址，这样当客户端A与服务端建立连接后，客户端B再次与服务端建立连接，都是相同的IP地址，所以服务端的Pre-host的PASW机制会将客户端B发来的<br>SYN包丢弃。</p>
+<p>所以在NAT网络环境下使用TCP_tw_recyle是有问题的，当然如果它改为对TCP四元组做PAWS做检查，就能避免该问题。</p>
+<h3 id="accept队列满了"><a href="#accept队列满了" class="headerlink" title="accept队列满了"></a>accept队列满了</h3><p>现时服务端收到syn请求，内核会把该连接存储到半连接队列，然后返回给客户端SYN+ACK，客户端回复ACK后，内核会把连接先从半连接队列中移除，<br>然后创建新的连接放入accept队列中，等待进程调用accept函数将连接取出来。</p>
+<h4 id="半连接队列满了"><a href="#半连接队列满了" class="headerlink" title="半连接队列满了"></a>半连接队列满了</h4><p>对服务器造成SYN攻击会导致TCP半连接队列满了，后来的SYN包也会被丢弃，但开启syncookies功能，即使半连接队列满了，也不会丢弃syn包</p>
+<p>抵御SYN攻击的方法：</p>
+<ul>
+<li>增大半连接队列</li>
+<li>开启TCP_syncookies功能</li>
+<li>减少SYN+ACK重传次数<ul>
+<li>目的是加快处于syn_recv状态的tcp连接断开</li>
+</ul>
+</li>
+</ul>
+<h4 id="全连接队列满了"><a href="#全连接队列满了" class="headerlink" title="全连接队列满了"></a>全连接队列满了</h4><p>当accept调用不及时，或者队列过小，就会造成后续连接被丢弃。</p>
+<p>解决办法就是针对这两个问题。</p>
+<h2 id="已建立连接的TCP，收到SYN会发生什么"><a href="#已建立连接的TCP，收到SYN会发生什么" class="headerlink" title="已建立连接的TCP，收到SYN会发生什么"></a>已建立连接的TCP，收到SYN会发生什么</h2><p>两种情况：</p>
+<ol>
+<li>客户端syn报文与历史连接不同</li>
+</ol>
+<ul>
+<li>被认为是新连接需要建立</li>
+</ul>
+<ol start="2">
+<li>与历史连接相同</li>
+</ol>
+<ul>
+<li>当收到客户端的syn报文时候，会回复携带一个正确序列号和确认号的ack报文（challenge ack），客户端发现不是自己期望收<br>  到的，就会回复rst，使其释放连接。</li>
+</ul>
+<h3 id="如何关闭一个TCP连接"><a href="#如何关闭一个TCP连接" class="headerlink" title="如何关闭一个TCP连接"></a>如何关闭一个TCP连接</h3><p>方法是伪造一个满足四元组相同和序列号是对方期望的 这两个条件。</p>
+<h4 id="KillCX工具"><a href="#KillCX工具" class="headerlink" title="KillCX工具"></a>KillCX工具</h4><p>伪造相同四元组的syn报文，然后拿到challenge ack报文，从而获取序列号。killcx就是一个在中间主动发送syn报文并且获取序列号给两端发送<br>rst报文。</p>
+<p><img src="/../images/9_22/img_3.png" alt="img_3.png"></p>
+<h4 id="tcpkill-工具"><a href="#tcpkill-工具" class="headerlink" title="tcpkill 工具"></a>tcpkill 工具</h4><p>在双方通信的过程中，被动获取序列号，然后给两端发送RST报文。</p>
+<p>因此tcpkill工具只适合关闭活跃的tcp连接，不适合关闭非活跃的tcp连接。</p>
+<h2 id="四次挥手中收到乱序的FIN包会如何处理"><a href="#四次挥手中收到乱序的FIN包会如何处理" class="headerlink" title="四次挥手中收到乱序的FIN包会如何处理"></a>四次挥手中收到乱序的FIN包会如何处理</h2><p>如果fin报文先抵达客户端，此时该报文是乱序的，所以连接不会进入到TIME_WAIT装态里。而是被放入乱序队列中<br>，等到被延迟的数据包抵达被收到后，然后才判断乱序队列中有没有可用的数据，如果能找到序列号保持顺序的报文，则进一步<br>判断是否有FIN标志，如果有，则进入TIME_WAIT状态。</p>
+<h2 id="TIME-WAIT状态的TCP连接，收到syn后发生什么"><a href="#TIME-WAIT状态的TCP连接，收到syn后发生什么" class="headerlink" title="TIME_WAIT状态的TCP连接，收到syn后发生什么"></a>TIME_WAIT状态的TCP连接，收到syn后发生什么</h2><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>关键要看SYN的序列号和时间戳是否合法</p>
+<ul>
+<li>合法：序列号和时间戳要分别比期望收到的序列号大，比最后收到的时间戳大。</li>
+</ul>
+<h4 id="收到合法syn"><a href="#收到合法syn" class="headerlink" title="收到合法syn"></a>收到合法syn</h4><p>重用此四元组连接，跳过2MSL而转变为SYN_RECV状态，接着就能进行建立连接过程。</p>
+<h4 id="收到非法的SYN"><a href="#收到非法的SYN" class="headerlink" title="收到非法的SYN"></a>收到非法的SYN</h4><p>收到后判断不是合法的，首先不会转变状态，而是回复一个第四次挥手的ACK报文，客户端收到后，发现不是自己期望收到的确认号，<br>就会回RST报文给服务端。</p>
+<h4 id="如果TIME-WAIT状态下，收到-RST会断开连接嘛"><a href="#如果TIME-WAIT状态下，收到-RST会断开连接嘛" class="headerlink" title="如果TIME_WAIT状态下，收到 RST会断开连接嘛"></a>如果TIME_WAIT状态下，收到 RST会断开连接嘛</h4><p>主要看一个参数 net.ipv4.tcp_rfc1337,为0时，收到会提前结束该状态。为1时，会丢弃该报文。</p>
+<h2 id="TCP连接，一端断电和进程崩溃有什么区别？"><a href="#TCP连接，一端断电和进程崩溃有什么区别？" class="headerlink" title="TCP连接，一端断电和进程崩溃有什么区别？"></a>TCP连接，一端断电和进程崩溃有什么区别？</h2><h3 id="主机崩溃"><a href="#主机崩溃" class="headerlink" title="主机崩溃"></a>主机崩溃</h3><p>在没有开启保活机制（keepalive)时，服务端无法感知客户端主机是否崩溃，进而一直处于established连接状态。</p>
+<h3 id="进程崩溃"><a href="#进程崩溃" class="headerlink" title="进程崩溃"></a>进程崩溃</h3><p>tcp连接信息是由内核维护的，当服务端进程崩溃后，内核会回收该进程所有TCP连接资源，于是内核会发送第一次挥手fin，后续<br>挥手过程也是在内核里完成的。</p>
+<h3 id="有数据传输的场景"><a href="#有数据传输的场景" class="headerlink" title="有数据传输的场景"></a>有数据传输的场景</h3><h4 id="客户端主机宕机，又迅速重启"><a href="#客户端主机宕机，又迅速重启" class="headerlink" title="客户端主机宕机，又迅速重启"></a>客户端主机宕机，又迅速重启</h4><p>当客户端主机宕机后，达到一定时长后，服务端会触发超时重传机制</p>
+<p>在重传的过程中，客户端主机重启，客户端内核会接收重传的报文</p>
+<ul>
+<li>若客户端主机没有进程绑定该tcp报文的目标端口，那么客户端你就会回复RST报文，重置该tcp连接。</li>
+<li>有绑定的话，因为之前的tcp连接的数据结构已经丢失了，客户端内核里协议栈会发现找不到该连接的结构体，就会<br>回复RST报文，重置连接。</li>
+</ul>
+<h4 id="客户端主机宕机，一直没有重启"><a href="#客户端主机宕机，一直没有重启" class="headerlink" title="客户端主机宕机，一直没有重启"></a>客户端主机宕机，一直没有重启</h4><p>服务端超时重传达到一定次数后，会断开连接。而且重传的最大次数并不是设置多少就是多少，而是根据设置的值计算出一个timeout，<br>超过这个timeout，则认为超过了阈值，就会停止重传，断开连接。</p>
+<h2 id="网线拔掉后，原本的TCP连接还存在嘛"><a href="#网线拔掉后，原本的TCP连接还存在嘛" class="headerlink" title="网线拔掉后，原本的TCP连接还存在嘛"></a>网线拔掉后，原本的TCP连接还存在嘛</h2><p>分场景讨论：</p>
+<ul>
+<li>拔掉网线，有数据传输</li>
+<li>拔掉网线，没有数据传输</li>
+</ul>
+<h3 id="拔掉网线，有数据传输"><a href="#拔掉网线，有数据传输" class="headerlink" title="拔掉网线，有数据传输"></a>拔掉网线，有数据传输</h3><p>客户端拔掉后，服务端发送的消息没有回应，就会触发超时重传机制。</p>
+<ul>
+<li>如果重传过程中，客户端刚好把网线插回去，不影响继续传输。</li>
+<li>要是一直没插回去，重传达到一定阈值后（每轮超时时间倍数增长，直到累积达到阈值），就会断开连接。</li>
+</ul>
+<h3 id="拔掉网线后，没有数据传输"><a href="#拔掉网线后，没有数据传输" class="headerlink" title="拔掉网线后，没有数据传输"></a>拔掉网线后，没有数据传输</h3><p>看是否开启保活机制</p>
+<ul>
+<li>没开启保活机制:连接会一直保存。</li>
+<li>开启保活机制：没有回应后连接消失</li>
+</ul>
+<h2 id="tcptereuse-为什么默认是关闭的"><a href="#tcptereuse-为什么默认是关闭的" class="headerlink" title="tcptereuse 为什么默认是关闭的"></a>tcptereuse 为什么默认是关闭的</h2><p>tcptereuse 开启时，如果内核选择的端口被相同四元组连接占用了，只要该连接处于TIME_WAIT状态并且状态持续1秒（跳过了2msl时间）<br>就会重用这个连接。</p>
+<p>而tcptereuse默认是关闭的，开启它会有两个问题</p>
+<h3 id="第一个问题"><a href="#第一个问题" class="headerlink" title="第一个问题"></a>第一个问题</h3><p>快速复用TIEM_WAIT状态的端口，导致新连接可能被回绕序列号的RST报文断开，如果不跳过TIME_WAIT状态，而是停留2MSL时长，那么<br>这个RST报文不会出现下一个新的连接。</p>
+<h3 id="第二个问题"><a href="#第二个问题" class="headerlink" title="第二个问题"></a>第二个问题</h3><p>第四次挥手的ACK报文丢失，服务端重传被复用的连接收到，就会返回RST给服务端。</p>
+<p>这里，处于last_ack状态的服务端收到SYN报文后，会回复一个与服务端上一次发送ACK报文一样的ACK报文（challenge ack),并不是确认收到SYN报文。</p>
+<h2 id="HTTPS中TLS和TCP能同时握手嘛"><a href="#HTTPS中TLS和TCP能同时握手嘛" class="headerlink" title="HTTPS中TLS和TCP能同时握手嘛"></a>HTTPS中TLS和TCP能同时握手嘛</h2><p>一般的情况是先进行tcp三次握手，再进行TLS四次握手。</p>
+<p>但也有特殊情况,同时符合下面两种条件：</p>
+<ul>
+<li>客户端和服务端都开启了TCP FastOpen 功能，且TLS版本是1.3；</li>
+<li>客户端和服务端已经完成过一次通信。</li>
+</ul>
+<h3 id="TCP-Fast-Open"><a href="#TCP-Fast-Open" class="headerlink" title="TCP Fast Open"></a>TCP Fast Open</h3><p>第一次建立连接时，客户端携带空的cookies，表示进行 fastopen 连接，然后服务端生成并置于报文中返回客户端，客户端收到后<br>本地缓存该cookie，后续通信时，客户端可以第一次握手时候就携带数据，从而绕过三次握手。</p>
+<h3 id="TLSV1-3"><a href="#TLSV1-3" class="headerlink" title="TLSV1.3"></a>TLSV1.3</h3><p>1.3版本握手过程只需要1-RTT的时间。</p>
+<h3 id="TCP-Fast-Open-TLSv1-3"><a href="#TCP-Fast-Open-TLSv1-3" class="headerlink" title="TCP Fast Open + TLSv1.3"></a>TCP Fast Open + TLSv1.3</h3><p>此时，在第二次以后的通信中，TLS和TCP握手是可以同时进行的。</p>
+<p>如果是该场景下的会话恢复过程，TLS和TCP握手过程，HTTP请求可同时完成。</p>
+<h2 id="TCP-keeplive-和HTTP-keeplive对比"><a href="#TCP-keeplive-和HTTP-keeplive对比" class="headerlink" title="TCP keeplive 和HTTP keeplive对比"></a>TCP keeplive 和HTTP keeplive对比</h2><h3 id="HTTP-keepLIVE"><a href="#HTTP-keepLIVE" class="headerlink" title="HTTP keepLIVE"></a>HTTP keepLIVE</h3><p>指的是HTTP长连接：由应用程序实现，特点是只要任意一端没有明确提出断开连接，则保持TCP连接状态，且不会一直占用资源，而是会有超时时间，时间一到就会断开连接。</p>
+<h3 id="TCP-Keeplive"><a href="#TCP-Keeplive" class="headerlink" title="TCP Keeplive"></a>TCP Keeplive</h3><p>就是保活机制。</p>
+<h2 id="TCP协议有什么缺陷"><a href="#TCP协议有什么缺陷" class="headerlink" title="TCP协议有什么缺陷"></a>TCP协议有什么缺陷</h2><h3 id="升级TCP的工作很困难"><a href="#升级TCP的工作很困难" class="headerlink" title="升级TCP的工作很困难"></a>升级TCP的工作很困难</h3><p>因为tcp协议是在内核中实现的，要想升级TCP就得升级内核。但内核升级牵扯的东西很多，升级很困难。</p>
+<h3 id="TCP建立连接的延迟"><a href="#TCP建立连接的延迟" class="headerlink" title="TCP建立连接的延迟"></a>TCP建立连接的延迟</h3><p>主要是握手的延迟。</p>
+<h3 id="TCP存在队头阻塞问题"><a href="#TCP存在队头阻塞问题" class="headerlink" title="TCP存在队头阻塞问题"></a>TCP存在队头阻塞问题</h3><p>TCP层必须保证收到字节数据是完整且有序的，所以当多个packet中的某一个包丢失后，必须等待这个包重传回来，接收方应用层才可以<br>从内核中读取数据。</p>
+<p>HTTP&#x2F;2中队头阻塞问题就是tcp协议导致的</p>
+<h3 id="网络迁移需要重新建立TCP连接"><a href="#网络迁移需要重新建立TCP连接" class="headerlink" title="网络迁移需要重新建立TCP连接"></a>网络迁移需要重新建立TCP连接</h3><p>IP地址发生变化后，就得重新建立TCP连接</p>
+<h2 id="如何基于UDP协议实现可靠传输"><a href="#如何基于UDP协议实现可靠传输" class="headerlink" title="如何基于UDP协议实现可靠传输"></a>如何基于UDP协议实现可靠传输</h2><p>已经有可靠的方案了，就是QUIC协议，已经用在了HTTP&#x2F;3上了。</p>
+<h3 id="QUIC是如何实现可靠传输的"><a href="#QUIC是如何实现可靠传输的" class="headerlink" title="QUIC是如何实现可靠传输的"></a>QUIC是如何实现可靠传输的</h3><p><img src="/../images/9_22/img_4.png" alt="img_4.png"></p>
+<p>总共三层头部</p>
+<h4 id="Packet-Header"><a href="#Packet-Header" class="headerlink" title="Packet Header"></a>Packet Header</h4><p>细分为两种：</p>
+<ul>
+<li>long packet header 用于首次连接建立</li>
+<li>short packet header 用于日常传输数据</li>
+</ul>
+<p>QUIC同样需要三次握手，目的是交换连接id,当首次连接交换完成后，日常传输数据不需要传输连接id。</p>
+<p>short packet header 中的packet number是每个报文独一无二的编号，它是严格递增的，即便报文丢失，重传的报文的packet number 也是<br>比之前的大。</p>
+<p>这样设计的目的是解决tcp重传的歧义问题，从而更精确的计算出报文的RTT，并且支持乱序确认，解决阻塞问题。</p>
+<h4 id="QUIC-FRAME-Header"><a href="#QUIC-FRAME-Header" class="headerlink" title="QUIC FRAME Header"></a>QUIC FRAME Header</h4><p>一个packet 报文可以存放多个quic FRAME ，frame 不同，针对的类型不同，格式也就不一样了。<br>以stream 为例子：<br><img src="/../images/9_22/img_5.png" alt="img_5.png"></p>
+<ul>
+<li>stream id ：区分消息</li>
+<li>offset 类似seq序号，保证数据的顺序性和可靠性</li>
+<li>length 指明了frame数据的长度</li>
+</ul>
+<p>所以，通过单向递增的packet number，配合stream id 与 offset 字段信息，可以支持乱序确认而不影响数据包正确组装。</p>
+<h3 id="QUIC-是如何解决TCP队头阻塞问题的"><a href="#QUIC-是如何解决TCP队头阻塞问题的" class="headerlink" title="QUIC 是如何解决TCP队头阻塞问题的"></a>QUIC 是如何解决TCP队头阻塞问题的</h3><h4 id="TCP队头阻塞问题"><a href="#TCP队头阻塞问题" class="headerlink" title="TCP队头阻塞问题"></a>TCP队头阻塞问题</h4><p>其实就是接收窗口队头阻塞问题：由于是按序接收的，如果之前的有某个字节的数据没有收到，接收窗口无法向前滑动。</p>
+<h4 id="HTTP-2的队头阻塞问题"><a href="#HTTP-2的队头阻塞问题" class="headerlink" title="HTTP&#x2F;2的队头阻塞问题"></a>HTTP&#x2F;2的队头阻塞问题</h4><p>HTTP&#x2F;2 多个请求都是在一条TCP连接上传输的，也就是多个stream 共用一个tcp滑动窗口，那么当发生数据丢失时，<br>滑动窗口无法向前移动，就会阻塞请求，这属于TCP层队头阻塞。</p>
+<h4 id="没有队头阻塞的-QUIC"><a href="#没有队头阻塞的-QUIC" class="headerlink" title="没有队头阻塞的 QUIC"></a>没有队头阻塞的 QUIC</h4><p>QUIC给每一个stream 都分配了一个独立的滑动窗口，这样使得一个连接上的stream之间相互独立，各自控制的滑动从窗口。</p>
+<h3 id="QUIC-是如何做流量控制的"><a href="#QUIC-是如何做流量控制的" class="headerlink" title="QUIC 是如何做流量控制的"></a>QUIC 是如何做流量控制的</h3><ul>
+<li>通过window——update 告诉对端自己可以接收的字节数。</li>
+<li>通过blockframe 告诉对端由于流量控制被堵塞，无法发送数据</li>
+</ul>
+<p>QUIC实现了两种级别的流量控制，分别是:</p>
+<ul>
+<li>stream 级别的流量控制<ul>
+<li>接收窗口的左边界取决于接收到的最大偏移字节数，当接收窗口因接收到了大部分数据而缩减到阈值时，就会重新请求申请扩大窗口。</li>
+</ul>
+</li>
+<li>connection流量控制<ul>
+<li>接收窗口大小就是各个stream接收窗口的大小之和</li>
+</ul>
+</li>
+</ul>
+<h3 id="QUIC-对拥塞控制改进"><a href="#QUIC-对拥塞控制改进" class="headerlink" title="QUIC 对拥塞控制改进"></a>QUIC 对拥塞控制改进</h3><p>默认使用tcp的cubic拥塞控制算法。因为是在应用层，所以迭代速度较快，并且可以针对不同的应用设置不同的拥塞控制算法。</p>
+<h3 id="QUIC更快的连接建立"><a href="#QUIC更快的连接建立" class="headerlink" title="QUIC更快的连接建立"></a>QUIC更快的连接建立</h3><p>QUIC内部包含了TLS，自己的桢会携带TLS的记录里，再加上quic使用的是TLS1.3，因此仅需1个RTT就可以同时完成建立连接。</p>
+<h3 id="QUIC-是如何迁移连接的"><a href="#QUIC-是如何迁移连接的" class="headerlink" title="QUIC 是如何迁移连接的"></a>QUIC 是如何迁移连接的</h3><p>靠的是连接ID，即使后面IP地址变化了，但只要保有上下文信息，就可以无缝复用连接。</p>
+<h2 id="TCP-和-UDP-可以使用同一个端口嘛"><a href="#TCP-和-UDP-可以使用同一个端口嘛" class="headerlink" title="TCP 和 UDP 可以使用同一个端口嘛"></a>TCP 和 UDP 可以使用同一个端口嘛</h2><h3 id="TCP-和-UDP-可以同时绑定相同的端口嘛"><a href="#TCP-和-UDP-可以同时绑定相同的端口嘛" class="headerlink" title="TCP 和 UDP 可以同时绑定相同的端口嘛"></a>TCP 和 UDP 可以同时绑定相同的端口嘛</h3><p>传输层端口号的作用是为了区分同一个主机不同应用程序的数据包，传输层两个传输协议分别是TCP和UDP ，在内核中是两个完全<br>独立的模块，当主机收到数据包后，可以在ip包头的协议号上得知该数据包是TCP&#x2F;UDP，所以可以同时绑定相同的端口。</p>
+<h3 id="多个-TCP服务进程可以绑定同一个端口嘛"><a href="#多个-TCP服务进程可以绑定同一个端口嘛" class="headerlink" title="多个 TCP服务进程可以绑定同一个端口嘛"></a>多个 TCP服务进程可以绑定同一个端口嘛</h3><p>如果两个TCP服务进程同时绑定的IP地址和端口相同，那么执行bind()的时候就会出错，报错为重复使用。</p>
+<h3 id="重启TCP服务进程时，为什么会有ADDRESS-IN-USE-报错消息"><a href="#重启TCP服务进程时，为什么会有ADDRESS-IN-USE-报错消息" class="headerlink" title="重启TCP服务进程时，为什么会有ADDRESS IN USE 报错消息"></a>重启TCP服务进程时，为什么会有ADDRESS IN USE 报错消息</h3><p>重启时，服务端会出现TIME_WAIT状态连接，该状态下使用的ip+port仍被认为是有效的，该状态结束后重启就有效了。</p>
+<h4 id="如何避免"><a href="#如何避免" class="headerlink" title="如何避免"></a>如何避免</h4><p>在调用bind前，对socket设置SO_REUSEADDR属性，并且在绑定IP地址加端口时，只要IP地址不是正好相同，那么就允许绑定。</p>
+<h3 id="客户端端口可重复使用嘛"><a href="#客户端端口可重复使用嘛" class="headerlink" title="客户端端口可重复使用嘛"></a>客户端端口可重复使用嘛</h3><p>可以使用，因为TCP连接是靠四元组连接的，所以并不会因为端口号相同就导致连接冲突问题。</p>
+<h3 id="多个客户端可以bind-同一个端口嘛"><a href="#多个客户端可以bind-同一个端口嘛" class="headerlink" title="多个客户端可以bind  同一个端口嘛"></a>多个客户端可以bind  同一个端口嘛</h3><p>如果绑定的ip+端口都相同，执行bind会报错，但是一般而言，客户端不建议使用bind函数，而是交由Connect函数选择端口比较好。</p>
+<h3 id="客户端TCP连接TIME-WAIT状态过多，会导致端口资源耗尽而无法连接嘛"><a href="#客户端TCP连接TIME-WAIT状态过多，会导致端口资源耗尽而无法连接嘛" class="headerlink" title="客户端TCP连接TIME_WAIT状态过多，会导致端口资源耗尽而无法连接嘛"></a>客户端TCP连接TIME_WAIT状态过多，会导致端口资源耗尽而无法连接嘛</h3><p>只要客户端连接的服务器不同，端口资源可以重复使用。但是与同一个服务器建立连接，会出现资源耗尽的情况。</p>
+<p>对于与同一个服务器建立连接资源耗尽的情况，可以开启tcp_tw_reuse </p>
+<p>整个客户端端口选择流程总结：</p>
+<p><img src="/../images/9_22/img_6.png" alt="img_6.png"></p>
+<h2 id="服务端没有listen，客户端发起连接建立，会发生什么"><a href="#服务端没有listen，客户端发起连接建立，会发生什么" class="headerlink" title="服务端没有listen，客户端发起连接建立，会发生什么"></a>服务端没有listen，客户端发起连接建立，会发生什么</h2><p>答案： 服务端如果只bind了IP地址和端口，而没有调用listen的话，然后客户端对服务端发起了连接建立，服务端会回RST报文。</p>
+<ul>
+<li>不使用listen，能建立tcp连接嘛<ul>
+<li>可以的，客户端自己连自己的形成连接，也可以两个客户端同时向对方发出请求建立连接。</li>
+</ul>
+</li>
+<li>没有listen,为什么创建半连接队列和全连接队列<ul>
+<li>执行listen时，会创建半连接队列和全连接队列，三次握手的过程会在这里存储信息，所以形成连接，前提是有地方存放着。</li>
+</ul>
+</li>
+<li>客户端会有半连接队列嘛<ul>
+<li>显然不会有，tcp自连接情况中，客户端在connect方法时，最后将自己连接信息放入到这个全局hash表中，然后将信息发送，<br>信息经过回环地址，重新回到tcp传输层，然后再一次从这个全局hash中取出信息。这样建立起了连接。</li>
+</ul>
+</li>
+</ul>
+<h2 id="没有ACCEPT，能建立TCP连接嘛"><a href="#没有ACCEPT，能建立TCP连接嘛" class="headerlink" title="没有ACCEPT，能建立TCP连接嘛"></a>没有ACCEPT，能建立TCP连接嘛</h2><p>当然能建立连接，不执行accpet，三次握手也是照常进行，并顺利建立连接，并且服务端执行ACCPRT()前，客户端发送消息，服务端<br>也是能够正常回复ack确认包的。</p>
+<p><img src="/../images/9_22/img_7.png" alt="img_7.png"></p>
+<h3 id="半连接队列"><a href="#半连接队列" class="headerlink" title="半连接队列"></a>半连接队列</h3><p>半连接队列设计为哈希表，因为半连接里的都是不完整的连接，有一个三次握手来了，就把其从队列里相应的IP端口取出来，<br>要是设计成链表，复杂度的就上去了。</p>
+<ul>
+<li>半连接队列满了会怎么样<ul>
+<li>cookies来解决，cookies通过通信双方的IP地址端口，时间戳，mss等信息进行实时计算，保存在TCP报头的seq里。<ul>
+<li>但是解析cookies很消耗cpu,如果构造大量ACK 包去消耗服务端资源（ack攻击），会导致cpu请求占满。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="全连接队列"><a href="#全连接队列" class="headerlink" title="全连接队列"></a>全连接队列</h3><p>是个链表</p>
+<ul>
+<li>全连接队列满了会怎么样<ul>
+<li>满了默认丢弃，并且还会受到tcp_abort_on_overflow的影响<ul>
+<li>参数为0，满了会丢弃，并且重传第二次握手的syn+ack，重传超过一定限制次数，还会把对应的半连接队列里的连接给删掉。</li>
+<li>参数为1，返回rst给客户端</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="用了TCP协议，数据一定不会丢嘛"><a href="#用了TCP协议，数据一定不会丢嘛" class="headerlink" title="用了TCP协议，数据一定不会丢嘛"></a>用了TCP协议，数据一定不会丢嘛</h2><h3 id="数据包的发送过程"><a href="#数据包的发送过程" class="headerlink" title="数据包的发送过程"></a>数据包的发送过程</h3><p><img src="/../images/9_22/img_8.png" alt="img_8.png"></p>
+<h3 id="常见的丢包的情况"><a href="#常见的丢包的情况" class="headerlink" title="常见的丢包的情况"></a>常见的丢包的情况</h3><ul>
+<li>建立连接时丢包（握手过程中）</li>
+<li>流量控制丢包：流控队列长度不够大时，容易丢包</li>
+<li>网卡丢包：网线质量差，接触不良等等<ul>
+<li>Ringbuffer 过小导致丢包</li>
+<li>网卡性能不足：传输速度有上限</li>
+</ul>
+</li>
+<li>接收缓冲区丢包</li>
+<li>两端之间的网络丢包<ul>
+<li>ping命令查看丢包，但只能直到丢没丢，不知道丢哪儿了</li>
+<li>mtr命令可以查看机器之间的节点的丢包情况。</li>
+</ul>
+</li>
+</ul>
+<h3 id="发生丢包的处理"><a href="#发生丢包的处理" class="headerlink" title="发生丢包的处理"></a>发生丢包的处理</h3><p>使用tcp协议</p>
+<h3 id="但是用了tcp协议一定不会丢包嘛"><a href="#但是用了tcp协议一定不会丢包嘛" class="headerlink" title="但是用了tcp协议一定不会丢包嘛"></a>但是用了tcp协议一定不会丢包嘛</h3><p>tcp的可靠性是只能保证数据从a机器的传输层可靠的发送到B机器的传输层。</p>
+<h2 id="TCP四次挥手可以变成三次嘛"><a href="#TCP四次挥手可以变成三次嘛" class="headerlink" title="TCP四次挥手可以变成三次嘛"></a>TCP四次挥手可以变成三次嘛</h2><h3 id="为什么需要四次挥手"><a href="#为什么需要四次挥手" class="headerlink" title="为什么需要四次挥手"></a>为什么需要四次挥手</h3><p>服务端收到fin并返回ack报文后，因为还有数据要发送，所以将发送FIN报文的控制权交给服务端应用程序。</p>
+<p>当然如果进程退出了，无论正常与否，内核都会发送fin报文，与对方完成四次挥手。</p>
+<p>如果客户端选择close函数关闭，那么当服务端发送数据过来，客户端会回复rst报文，直接关闭。用shutdown就不一样了，比较优雅的关闭了</p>
+<h3 id="什么情况下会出现三次挥手"><a href="#什么情况下会出现三次挥手" class="headerlink" title="什么情况下会出现三次挥手"></a>什么情况下会出现三次挥手</h3><p>当没有数据要发送并且开启了TCP延迟确认机制时，第二次和第三次挥手就会合并传输。</p>
+<p>tcp延迟是指：</p>
+<ul>
+<li>响应数据发送时，ack会随着响应数据一起立刻发送</li>
+<li>没有响应数据发送时，ack将会延迟一段时间，以等待是否有响应数据一起发送</li>
+<li>第二个数据报文到达时，立刻发送ack</li>
+</ul>
+<h2 id="TCP-序列号和确认号是如何变化的"><a href="#TCP-序列号和确认号是如何变化的" class="headerlink" title="TCP 序列号和确认号是如何变化的"></a>TCP 序列号和确认号是如何变化的</h2><h3 id="序列号和确认号的计算"><a href="#序列号和确认号的计算" class="headerlink" title="序列号和确认号的计算"></a>序列号和确认号的计算</h3><p>序列号：上一次发送的序列号 + len(数据长度)，如果是syn或者fin 改为加1。</p>
+<p>确认号： 上一次收到的序列号 + len(数据长度) ，如果收到的是syn或者fin,改为加1。</p>
+<p>序列号用于解决网络包乱序问题，确认号（用来解决丢包问题）。</p>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/09/13/%E7%AE%97%E6%B3%95_%E5%93%88%E5%B8%8C/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">哈希</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/09/02/%E7%AE%97%E6%B3%95_%E9%93%BE%E8%A1%A8/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">链表</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+    <div class="valine-container comments-container content-padding--primary soft-size--large soft-style--box">
+      <div id="valine_thread" class="valine-thread"></div>
+    </div>
+    <script type="text/javascript" src="//unpkg.com/leancloud-storage@3.15.0/dist/av-min.js"></script>
+    <script type="text/javascript" src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script type="text/javascript">
+      new Valine({
+        el: "#valine_thread",
+        appId: "0tZYiKXP6h6hgCaCFYoe4KiP-gzGzoHsz",
+        appKey: "5u69EHfWAIp7ts5yfOClaZ2Y",
+        placeholder: "随便说点什么叭～",
+        avatar: "mp",
+        pageSize: 10,
+        lang: "zh-CN",
+        visitor: true,
+        recordIP: true,
+        enableQQ: false,
+        meta: ['nick', 'mail', 'link'],
+        requiredFields: ['nick'],
+        
+        // Bilibili 表情包插件
+        // 设置 Bilibili 表情包地址
+        emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+        // 表情 title 和图片映射
+        emojiMaps: {
+            // 小黄脸
+            "2023": "fa6dda8b876ed38609de38aa604be5ad109b8591.png",
+            "足球": "f9157d9fa5ac3b8339cb8a8b7ad70eb40d4113c9.png",
+            "脱单doge": "bf7e00ecab02171f8461ee8cf439c73db9797748.png",
+            "微笑": "685612eadc33f6bc233776c6241813385844f182.png",
+            "口罩": "3ad2f66b151496d2a5fb0a8ea75f32265d778dd3.png",
+            "doge": "3087d273a78ccaff4bb1e9972e2ba2a7583c9f11.png",
+            "妙啊": "b4cb77159d58614a9b787b91b1cd22a81f383535.png",
+            "OK": "4683fd9ffc925fa6423110979d7dcac5eda297f4.png",
+            "星星眼": "63c9d1a31c0da745b61cdb35e0ecb28635675db2.png",
+            "辣眼睛": "35d62c496d1e4ea9e091243fa812866f5fecc101.png",
+            "吃瓜": "4191ce3c44c2b3df8fd97c33f85d3ab15f4f3c84.png",
+            "滑稽": "d15121545a99ac46774f1f4465b895fe2d1411c3.png",
+            "呲牙": "b5a5898491944a4268360f2e7a84623149672eb6.png",
+            "打call": "431432c43da3ee5aab5b0e4f8931953e649e9975.png",
+            "歪嘴": "4384050fbab0586259acdd170b510fe262f08a17.png",
+            "调皮": "8290b7308325e3179d2154327c85640af1528617.png",
+            "2022": "a783df2ce72952c44004007462324bde4b092a0c.png",
+            "虎年": "a062f5fa2bafe677e49b6963a2bbb11dd4fe1e11.png",
+            "豹富": "3d1dbe52ea16e12ff7b1c371196f728a4097fb33.png",
+            "嗑瓜子": "28a91da1685d90124cfeead74622e1ebb417c0eb.png",
+            "笑哭": "c3043ba94babf824dea03ce500d0e73763bf4f40.png",
+            "藏狐": "ba0937ef6f3ccca85e2e0047e6263f3b4da37201.png",
+            "脸红": "0922c375da40e6b69002bd89b858572f424dcfca.png",
+            "给心心": "1597302b98827463f5b75c7cac1f29ea6ce572c4.png",
+            "嘟嘟": "abd7404537d8162720ccbba9e0a8cdf75547e07a.png",
+            "哦呼": "362bded07ea5434886271d23fa25f5d85d8af06c.png",
+            "喜欢": "8a10a4d73a89f665feff3d46ca56e83dc68f9eb8.png",
+            "酸了": "92b1c8cbceea3ae0e8e32253ea414783e8ba7806.png",
+            "嫌弃": "de4c0783aaa60ec03de0a2b90858927bfad7154b.png",
+            "大哭": "2caafee2e5db4db72104650d87810cc2c123fc86.png",
+            "害羞": "9d2ec4e1fbd6cb1b4d12d2bbbdd124ccb83ddfda.png",
+            "疑惑": "b7840db4b1f9f4726b7cb23c0972720c1698d661.png",
+            "喜极而泣": "485a7e0c01c2d70707daae53bee4a9e2e31ef1ed.png",
+            "奸笑": "bb84906573472f0a84cebad1e9000eb6164a6f5a.png",
+            "笑": "81edf17314cea3b48674312b4364df44d5c01f17.png",
+            "偷笑": "6c49d226e76c42cd8002abc47b3112bc5a92f66a.png",
+            "惊讶": "f8e9a59cad52ae1a19622805696a35f0a0d853f3.png",
+            "捂脸": "6921bb43f0c634870b92f4a8ad41dada94a5296d.png",
+            "阴险": "ba8d5f8e7d136d59aab52c40fd3b8a43419eb03c.png",
+            "囧": "12e41d357a9807cc80ef1e1ed258127fcc791424.png",
+            "呆": "33ad6000d9f9f168a0976bc60937786f239e5d8c.png",
+            "抠鼻": "cb89184c97e3f6d50acfd7961c313ce50360d70f.png",
+            "大笑": "ca94ad1c7e6dac895eb5b33b7836b634c614d1c0.png",
+            "惊喜": "0afecaf3a3499479af946f29749e1a6c285b6f65.png",
+            "无语": "44667b7d9349957e903b1b62cb91fb9b13720f04.png",
+            "点赞": "1a67265993913f4c35d15a6028a30724e83e7d35.png",
+            "鼓掌": "895d1fc616b4b6c830cf96012880818c0e1de00d.png",
+            "尴尬": "cb321684ed5ce6eacdc2699092ab8fe7679e4fda.png",
+            "灵魂出窍": "43d3db7d97343c01b47e22cfabeca84b4251f35a.png",
+            "委屈": "d2f26cbdd6c96960320af03f5514c5b524990840.png",
+            "傲娇": "010540d0f61220a0db4922e4a679a1d8eca94f4e.png",
+            "疼": "905fd9a99ec316e353b9bd4ecd49a5f0a301eabf.png",
+            "冷": "cb0ebbd0668640f07ebfc0e03f7a18a8cd00b4ed.png",
+            "热": "4e58a2a6f5f1580ac33df2d2cf7ecad7d9ab3635.png",
+            "生病": "0f25ce04ae1d7baf98650986454c634f6612cb76.png",
+            "吓": "9c10c5ebc7bef27ec641b8a1877674e0c65fea5d.png",
+            "吐": "06946bfe71ac48a6078a0b662181bb5cad09decc.png",
+            "捂眼": "c5c6d6982e1e53e478daae554b239f2b227b172b.png",
+            "嘘声": "e64af664d20716e090f10411496998095f62f844.png",
+            "思考": "cfa9b7e89e4bfe04bbcd34ccb1b0df37f4fa905c.png",
+            "再见": "fc510306bae26c9aec7e287cdf201ded27b065b9.png",
+            "翻白眼": "eba54707c7168925b18f6f8b1f48d532fe08c2b1.png",
+            "哈欠": "888d877729cbec444ddbd1cf4c9af155a7a06086.png",
+            "奋斗": "bb2060c15dba7d3fd731c35079d1617f1afe3376.png",
+            "墨镜": "3a03aebfc06339d86a68c2d893303b46f4b85771.png",
+            "难过": "a651db36701610aa70a781fa98c07c9789b11543.png",
+            "撇嘴": "531863568e5668c5ac181d395508a0eeb1f0cda4.png",
+            "抓狂": "4c87afff88c22439c45b79e9d2035d21d5622eba.png",
+            "生气": "3195714219c4b582a4fb02033dd1519913d0246d.png",
+            "水稻": "d530fcaa5100ba12a17a79b55bad342d530c54e3.png",
+            "奶茶干杯": "d5a491990be551ce69f9660da948050df4eab331.png",
+            "汤圆": "93609633a9d194cf336687eb19c01dca95bde719.png",
+            "锦鲤": "643d6c19c8164ffd89e3e9cdf093cf5d773d979c.png",
+            "弹幕破百亿": "80891223ba023dff3141e377f4ea3b89918eb6a4.png",
+            "福到了": "5de5373d354c373cf1617b6b836f3a8d53c5a655.png",
+            "鸡腿": "c7860392815d345fa69c4f00ef18d67dccfbd574.png",
+            "雪花": "a41813c4edf8782047e172c884ebd4507ce5e449.png",
+            "视频卫星": "dce6fc7d6dfeafff01241924db60f8251cca5307.png",
+            "干杯": "8da12d5f55a2c7e9778dcc05b40571979fe208e6.png",
+            "黑洞": "e90ec4c799010f25391179118ccd9f66b3b279ba.png",
+            "爱心": "ed04066ea7124106d17ffcaf75600700e5442f5c.png",
+            "胜利": "b49fa9f4b1e7c3477918153b82c60b114d87347c.png",
+            "加油": "c7aaeacb21e107292d3bb053e5abde4a4459ed30.png",
+            "抱拳": "89516218158dbea18ab78e8873060bf95d33bbbe.png",
+            "响指": "1b5c53cf14336903e1d2ae3527ca380a1256a077.png",
+            "保佑": "fafe8d3de0dc139ebe995491d2dac458a865fb30.png",
+            "福": "802429a301ac5b35a0480d9526a070ce67cd8097.png",
+            "支持": "3c210366a5585706c09d4c686a9d942b39feeb50.png",
+            "拥抱": "41780a4254750cdaaccb20735730a36044e98ef3.png",
+            "跪了": "f2b3aee7e521de7799d4e3aa379b01be032698ac.png",
+            "怪我咯": "07cc6077f7f7d75b8d2c722dd9d9828a9fb9e46d.png",
+            "老鼠": "8e6fb491eb1bb0d5862e7ec8ccf9a3da12b6c155.png",
+            "牛年": "9275275ff1f2659310648221107d20bc4970f106.png",
+            "三星堆": "fc7dadaa6986e75b813aa26f3eff3281d5f1a6d1.png",
+            "洛天依": "9fe06f3594d9afaf4ee2b74770f1c3086ae0ba11.png",
+            "坎公骑冠剑_吃鸡": "c4248a7b6ab326d66c83fd1fb58f1a50f99df332.png",
+            "坎公骑冠剑_钻石": "0b97c7e50e0cc963370e62fbb9b55f51bbe7f8ab.png",
+            "坎公骑冠剑_无语": "80eba0ce64c3fc1279b4daede2f1979cb2380e78.png",
+            "来古-沉思": "4ee07ff03266d62b246be0b950bebb2abf3d997c.png",
+            "来古-呆滞": "9a70b365e523f2379f395031ceefcebb75a45903.png",
+            "来古-疑问": "032fdc0d9d9fe6334776f6c39518a959b73b98f4.png",
+            "来古-震撼": "8b40f228675602a317d32007de6b795c101135ec.png",
+            "来古-注意": "4b671ba32a2581cf40e5cd41c67b111eb8010de0.png",
+            "初音未来_大笑": "8e7f71cda83ce407b0684702983399f8ed982f17.png",
+            "原神_哇": "8188ddf95bace929d382c7a83214afde79d83bfc.png",
+            "原神_哼": "91ed33b74bc36873c3ac8b2648f70d7ab6d8ab78.png",
+            "原神_嗯": "8b0a87e414f453a29730b6e0f45ca61f2f898688.png",
+            "原神_欸嘿": "8fba438fcbe0550877b04efd768d857082307c5e.png",
+            "原神_喝茶": "1de5789fbb3526ef7823c54db7081790a38e7044.png",
+            "原神_生气": "90a38c34742899f8e84138ed55f56cad3ba611fb.png",
+            "保卫萝卜_白眼": "9fce63f38288700bf7be84f3be336cf895ba0902.png",
+            "保卫萝卜_笔芯": "5ff2ed5cb71b02010018cc5910ac7052a03769af.png",
+            "保卫萝卜_哭哭": "7d249f7c990111d3e2982f7477af15b7eb29cbd9.png",
+            "保卫萝卜_哇": "5f2370e561c32d841245f7b1aab2eef43aeb9544.png",
+            "保卫萝卜_问号": "41eb93f09fc4a4d0692a310e8a1f85ba60e96060.png",
+            "无悔华夏_不愧是你": "c58002c32ee78d45366e126f294cb3149dd64ac2.png",
+            "无悔华夏_吃瓜": "273dcff577551bafff4f1eae18561f871e73a6ba.png",
+            "无悔华夏_达咩": "cffab383f47bab7f6736ba9c8d6ac098113410d9.png",
+            "无悔华夏_点赞": "b0f2e8db405ec667c3e6aaabd7c15155b6ea8710.png",
+            "无悔华夏_好耶": "324cd79784aeb37dbf2f47f68bbe8ed5d01f975e.png",
+            "奥比岛_搬砖": "1fab697214918d91087373a999cc7ef8040ddf85.png",
+            "奥比岛_点赞": "fb0b476fe2ff30cd59385ea7d616627ac114161f.png",
+            "奥比岛_击爪": "35bba1bb8f164c5e844155548438248e6eaa8382.png",
+            "奥比岛_委屈": "fda155e7c33b40dbb94c24644e0635d47b6ef3cc.png",
+            "奥比岛_喜欢": "ed64e0c81ee194138bd9df30c65077ed978fb88c.png",
+            // tv_小电视
+            "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+            "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+            "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+            "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+            "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+            "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+            "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+            "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+            "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+            "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+            "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+            "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+            "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+            "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+            "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+            "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png",
+            "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+            "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+            "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+            "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+            "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+            "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+            "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+            "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+            "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+            "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+            "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+            "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+            "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+            "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+            "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+            "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+            "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+            "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+            "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+            "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+            "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+            "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+            "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+            "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+            "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+            "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+            "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+            "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+            "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+            "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+            "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+            "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+            "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+            "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+            // ... 更多表情
+        }
+        
+      });
+    </script>
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="/images/author.jpg" class="soft-size--round soft-style--box" alt="DragonBo">
+    
+    
+      <h2>DragonBo</h2>
+    
+    
+      <p>这一切还是精彩</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>16</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        4
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>本博客持续更新</p>
+  </div>
+</section>
+
+
+      <section class="widget-categories widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+      <span>CATEGORIES</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 20px;" class="tags-cloud-10">操作系统</a> <a href="/tags/%E6%97%A5%E5%B8%B8%EF%BC%8C%E6%91%84%E5%BD%B1/" style="font-size: 10px;" class="tags-cloud-0">日常，摄影</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.33px;" class="tags-cloud-3">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16.67px;" class="tags-cloud-7">计算机网络</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/hlb-1002" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+          <a href="https://twitter.com/guanquanhong" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2024 <a href="/" target="_blank">DragonBo</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+<!-- copy button  -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+<!-- https://clipboardjs.com/ -->
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
